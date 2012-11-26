@@ -14,7 +14,7 @@
 		<div class="nav-next"><?php next_comments_link('Newer Comments &rarr;'); ?></div>
 	</nav>
 	<?php endif; // check for comment navigation ?>
-
+	
 	<ul class="comments">
 		<?php wp_list_comments( array( 'callback' => 'nmd_comment' ) ); ?>
 	</ul>
@@ -31,6 +31,8 @@
 	<p class="nocomments"><?php _e( 'Comments are closed.', 'nmd' ); ?></p>
 <?php endif; ?>
 
+</div>
+
 <?php
 $comments_args = array(
 'title_reply'=>'Leave a Comment',
@@ -39,4 +41,3 @@ $comments_args = array(
 
 comment_form($comments_args);
 ?>
-</div>

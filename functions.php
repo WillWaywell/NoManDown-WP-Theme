@@ -67,7 +67,7 @@ function nmd_enqueue_scripts() {
 	wp_enqueue_script( 'jquery-transit' );
 	wp_register_script( 'nmd', get_template_directory_uri().'/js/nmd/nmd.js', array('jquery'), "1.0" );
 	wp_enqueue_script( 'nmd' );
-	wp_register_script( 'tinymce', get_template_directory_uri().'/js/tinymce/tiny_mce.js' );
+	wp_register_script( 'tinymce', get_template_directory_uri().'/js/tinymce/tiny_mce.js', array('jquery'), "3.5.8" );
 	wp_enqueue_script( 'tinymce' );
 	
 	// Lightbox Enqueue

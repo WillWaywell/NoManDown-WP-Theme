@@ -320,7 +320,6 @@ textarea:focus {
 
 #nav .nav-right .account {
 	float: left;
-	margin-right: 5px;
 }
 
 #nav .nav-right .account .avatar {
@@ -330,7 +329,7 @@ textarea:focus {
 
 #nav .nav-right .account a {
 	color: #888;
-	margin: 0 5px;
+	margin-left: 10px;
 	display: block;
 	float: left;
 }

@@ -295,7 +295,7 @@ textarea:focus {
 }
 
 #nav .menu .menu-item:not(.current_page_item) a:hover {
-	background: #333;
+	background: #555;
 }
 
 #nav .menu .menu-item.current_page_item a {
@@ -375,16 +375,13 @@ textarea:focus {
 	margin: 0;
 }
 
-#head .links .link:hover {
-	border-color: #DB650E;
-}
-
 #head .links .link.six {
 	background-position: -60px 0;
 }
 
 #head .links .link.six:hover {
 	color: #206aff;
+	border-color: #206aff;
 }
 
 #head .links .link.youtube {
@@ -393,6 +390,7 @@ textarea:focus {
 
 #head .links .link.youtube:hover {
 	color: #dc3223;
+	border-color: #dc3223;
 }
 
 #head .links .link.facebook {
@@ -401,6 +399,7 @@ textarea:focus {
 
 #head .links .link.facebook:hover {
 	color: #3b5998;
+	border-color: #3b5998;
 }
 
 #head .links .link.rss {
@@ -409,6 +408,7 @@ textarea:focus {
 
 #head .links .link.rss:hover {
 	color: #ed6b06;
+	border-color: #ed6b06;
 }
 
 /* =Section: Content

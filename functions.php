@@ -280,6 +280,6 @@ function nmd_post_links() {
 	<?php endif;
 	
 }
-endif;
+endif;	// ends check for nmd_post_links()
 
 ?>

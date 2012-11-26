@@ -31,6 +31,9 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 <body <?php body_class(); ?>>
 <nav id="nav">
 	<div class="wrap">
+		<a href="<?php bloginfo('url'); ?>" class="nav-logo">
+			<h1>No Man Down</h1>
+		</a>
 		<?php 
 			
 			$defaults = array(
@@ -56,6 +59,7 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 		</div>
 	</div>
 </nav>
+<div class="clear-break"></div>
 <header id="head" class="wrap">
 	<div class="links">
 		<a class="link six" title="Join a server">Play</a>

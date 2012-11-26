@@ -101,6 +101,7 @@ hgroup {
 
 table {
     border-collapse: collapse;
+    border-collapse: collapse;
 	border: none;
 }
 
@@ -325,7 +326,11 @@ textarea:focus {
 
 #nav .nav-right .account .avatar {
 	float: right;
-	margin: 7px 0 7px 10px;
+	border: 2px solid #555;
+	margin: 5px 0 5px 10px;
+	transition: border-color 200ms;
+	-moz-transition: border-color 200ms;  	
+	-webkit-transition: border-color 200ms; 
 }
 
 #nav .nav-right .account a {
@@ -337,6 +342,10 @@ textarea:focus {
 
 #nav .nav-right .account a:hover {
 	color: #fff;
+}
+
+#nav .nav-right .account a:hover .avatar {
+	border-color:#fff;
 }
 
 #head .links .link {

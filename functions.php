@@ -1,67 +1,108 @@
 <?php
+
 /**
  * Disable admin bar.
  */
 add_action('show_admin_bar', '__return_false');
 
+
+/**
+ * Register sidebar and widget areas.
+ */
+function nmd_widgets_init() {
+
+	register_sidebar(array(
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div></div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2><div class="widget-content">',
+	));
+	
+}
+add_action( 'widgets_init', 'nmd_widgets_init' );
+
+
+if ( ! function_exists( 'nmd_theme_setup' ) ) :
+/**
+ * Theme setup function.
+ */
+function nmd_theme_setup() {
+
+	require 'lib/GameQ.php'; 
+	
+	register_nav_menu('navigation', 'Navigation Menu');
+	
+}
+add_action( 'after_setup_theme', 'nmd_theme_setup', 0 );
+endif;	//ends check for nmd_theme_setup()
+
+
+if ( !function_exists( 'nmd_cleanhead' ) ) :
 /**
  * Clean up and remove unnecessary WP meta
  */
-function remheadlink() { 
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'wp_generator');
+function nmd_cleanhead() { 
+
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'wp_generator' );
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+	
 }
-add_action('init', 'remheadlink');
+add_action( 'init', 'nmd_cleanhead' );
+endif;	//ends check for nmd_cleanhead()
+
 
 if ( !function_exists( 'nmd_enqueue_scripts' ) ) :
 /**
- * Enqueue theme javascript safely
- *
- * @see http://codex.wordpress.org/Function_Reference/wp_enqueue_script
- * @since 1.5
+ * Enqueue Javascript and Stylesheets
  */
 function nmd_enqueue_scripts() {
+
 	// Theme Enqueue
 	wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery-1.8.3.min.js', array(), "1.8.3");
+    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery-1.8.3.min.js', array(), "1.8.3" );
     wp_enqueue_script( 'jquery' );
-	wp_register_script('jquery-transit', get_template_directory_uri().'/js/jquery.transit.js', array('jquery'), "0.1.3");
-	wp_enqueue_script('jquery-transit');
-	wp_register_script('nmd', get_template_directory_uri().'/js/nmd.js', array('jquery'), "2.8");
-	wp_enqueue_script('nmd');
-	wp_register_script( 'tinymce', get_template_directory_uri().'/js/tinymce/tiny_mce.js');
-	wp_enqueue_script('tinymce');
+	wp_register_script( 'jquery-transit', get_template_directory_uri().'/js/jquery.transit.js', array( 'jquery' ), "0.1.3" );
+	wp_enqueue_script( 'jquery-transit' );
+	wp_register_script( 'nmd', get_template_directory_uri().'/js/nmd/nmd.js', array('jquery'), "1.0" );
+	wp_enqueue_script( 'nmd' );
+	wp_register_script( 'tinymce', get_template_directory_uri().'/js/tinymce/tiny_mce.js' );
+	wp_enqueue_script( 'tinymce' );
 	
 	// Lightbox Enqueue
-	wp_register_script('lightbox', get_template_directory_uri().'/js/lightbox/js/lightbox.js', array(), "2.51");
-	wp_enqueue_script('lightbox');
-	wp_register_style('lightbox', get_template_directory_uri().'/js/lightbox/css/lightbox.css');
-	wp_enqueue_style('lightbox');
+	wp_register_script( 'lightbox', get_template_directory_uri().'/js/lightbox/js/lightbox.js', array(), "2.51" );
+	wp_enqueue_script( 'lightbox' );
+	wp_register_style( 'lightbox', get_template_directory_uri().'/js/lightbox/css/lightbox.css' );
+	wp_enqueue_style( 'lightbox' );
 	
 	// WP Thickbox
-	wp_enqueue_style('thickbox');
-	wp_enqueue_script('thickbox');
+	wp_enqueue_style( 'thickbox' );
+	wp_enqueue_script( 'thickbox' );
 	
-	// NMD Servers Overlay Ajax Params
-	$overlay_params = array(
-		'ajax_url' 				=> admin_url('admin-ajax.php'),
-		'login_nonce' 			=> wp_create_nonce("overlay-post-action")
+	// Overlays
+	wp_register_script( 'nmd_overlays', get_template_directory_uri().'/js/nmd/overlays.js', array( 'jquery', 'nmd' ), "1.0" );
+	wp_enqueue_script( 'nmd_overlays' );
+	
+	$servers_overlay_params = array(
+		'ajax_url' 				=> admin_url( 'admin-ajax.php' ),
+		'login_nonce' 			=> wp_create_nonce( 'servers-overlay-action' )
 	);
 
-	wp_localize_script('chatbox', 'overlay_params', $overlay_params );
+	wp_localize_script( 'nmd_overlays', 'servers_overlay_params', $servers_overlay_params );
+	
 }
 add_action( 'wp_enqueue_scripts', 'nmd_enqueue_scripts' );
-endif;
+endif;	//ends check for nmd_enqueue_scripts()
 
 
-if ( !function_exists( 'overlay_post_ajax_process' ) ) :
+if ( !function_exists( 'nmd_servers_overlay_ajax' ) ) :
 /**
- * NMD Servers Overlay Ajax Functions
+ * Servers Overlay Ajax
  */
-function overlay_post_ajax_process() {
-	check_ajax_referer('overlay-post-action', 'security' );
+function nmd_servers_overlay_ajax() {
+
+	check_ajax_referer('servers-overlay-action', 'security' );
 	
 	$servers = array(
 		array(
@@ -77,9 +118,9 @@ function overlay_post_ajax_process() {
 	);
 
 	$gq = new GameQ();
-	$gq->addServers($servers);
-	$gq->setOption('timeout', 4);
-	$gq->setFilter('normalise');
+	$gq->addServers( $servers );
+	$gq->setOption( 'timeout', 4 );
+	$gq->setFilter( 'normalise' );
 	$results = $gq->requestData();
 	
 
@@ -88,38 +129,34 @@ function overlay_post_ajax_process() {
 		'nmd_ace'	 => $results['nmd_ace']['gq_numplayers'],
 	);
 	
-	echo json_encode($return);
+	echo json_encode( $return );
 	die();
+	
 }
-add_action('wp_ajax_overlay_post_process', 'overlay_post_ajax_process');
-add_action('wp_ajax_nopriv_overlay_post_process', 'overlay_post_ajax_process');
-endif;
+add_action( 'wp_ajax_servers_overlay_process', 'nmd_servers_overlay_ajax' );
+add_action( 'wp_ajax_nopriv_servers_overlay_process', 'nmd_servers_overlay_ajax' );
+endif;	//ends check for nmd_servers_overlay_ajax()
 
 
 if ( !function_exists( 'nmd_login_enqueue_scripts' ) ) :
 /**
  * Login Page Scripts
  */
-function nmd_login_enqueue_scripts() { ?>
-    <link rel="stylesheet" href="<?php echo get_bloginfo( 'stylesheet_directory' ) . '/login.css'; ?>" type="text/css" media="all" />
-<?php }
-add_action('login_enqueue_scripts', 'nmd_login_enqueue_scripts');
-endif;
+function nmd_login_enqueue_scripts() { 
+
+	?> <link rel="stylesheet" href="<?php echo get_bloginfo( 'stylesheet_directory' ) . '/login.css'; ?>" type="text/css" media="all" /> <?php 
+
+}
+add_action( 'login_enqueue_scripts', 'nmd_login_enqueue_scripts' );
+endif;	//ends check for nmd_login_enqueue_scripts()
 
 
-register_nav_menu('navigation', 'Navigation Menu');
-if ( function_exists('register_sidebar') )
-    register_sidebar(array(
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => '</div></div>',
-		'before_title' => '<h2 class="widget-title">',
-		'after_title' => '</h2><div class="widget-content">',
-));
-
+if ( !function_exists( 'nmd_sanitize_allowedtags' ) ) :
 /**
  * Set allowed tags for posts.
  */
-function sanitize_allowedtags( $input ) {
+function nmd_sanitize_allowedtags( $input ) {
+
   global $allowedposttags, $allowedtags;
     $allowedtags["ol"] = array();
     $allowedtags["ul"] = array();
@@ -145,14 +182,17 @@ function sanitize_allowedtags( $input ) {
 	$allowedtags["a"]["class"] = array();
 	
 	return wpautop(wp_kses( $input, $allowedtags));
+	
 }
-add_action('init', 'sanitize_allowedtags', 10);
+add_action('init', 'nmd_sanitize_allowedtags', 10);
+endif;	//ends check for nmd_sanitize_allowedtags()
 
 
 /**
  * Load TinyMCE.
  */
-function tinyMCE_forms() {
+function nmd_load_tinyMCE() {
+
 ?>
 <script type="text/javascript">
 	tinyMCE.init({
@@ -171,20 +211,23 @@ function tinyMCE_forms() {
 		theme_advanced_statusbar_location : "bottom",
 		theme_advanced_resizing : false,
 		width: '100%',
-		height: '200',
+		height: '220',
 		theme_advanced_resizing : false,
 		elements: 'comment'
 	});
 </script>
 <?php
+
 }
-add_action( 'wp_head', 'tinyMCE_forms' );
+add_action( 'wp_head', 'nmd_load_tinyMCE' );
+
 
 if ( ! function_exists( 'nmd_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  */
 function nmd_comment( $comment, $args, $depth ) {
+
 	$GLOBALS['comment'] = $comment;
 	$comment->comment_type;
 	switch ( $comment->comment_type ) :
@@ -216,19 +259,9 @@ function nmd_comment( $comment, $args, $depth ) {
 	<?php
 		break;
 	endswitch;
+	
 }
 endif; // ends check for nmd_comment()
-
-
-if ( ! function_exists( 'nmd_theme_setup' ) ) :
-/**
- * Theme setup function.
- */
-function nmd_theme_setup() {
-	require 'lib/GameQ.php'; 
-}
-add_action( 'after_setup_theme', 'nmd_theme_setup', 11 );
-endif;
 
 
 if ( ! function_exists( 'nmd_post_links' ) ) :
@@ -236,6 +269,7 @@ if ( ! function_exists( 'nmd_post_links' ) ) :
  * Display navigation to next/previous pages when applicable
  */
 function nmd_post_links() {
+
 	global $wp_query;
 
 	if ( $wp_query->max_num_pages > 1 ) : ?>
@@ -244,6 +278,7 @@ function nmd_post_links() {
 			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></div>
 		</nav><!-- #nav-above -->
 	<?php endif;
+	
 }
 endif;
 

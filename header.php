@@ -23,8 +23,8 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>?ver=5.92" />
 <link rel='icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
 <link rel='shortcut icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
-<!--[if IE]>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/ie.js"></script>
+<!--[if lte IE 9]>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/ie.html5.js"></script>
 <![endif]-->
 <?php wp_head(); ?>
 </head>

@@ -1,6 +1,7 @@
-/* Internet Explorer 8 HTML5 Tags Fix
- * Copyright 2012 The Golden Squadron
- * Coded by Will Waywell
+/**
+ * File: Internet Explorer HTML5 Tag Compatibility
+ * Copyright: 2012 NoManDown
+ * Author: Will Waywell
  */
 document.createElement('header');
 document.createElement('nav');

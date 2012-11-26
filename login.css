@@ -1,0 +1,123 @@
+body.login {
+	background: #0F0F0F;
+	color: #eee;
+}
+
+body.login div#login h1 a {
+	background: url(img/nmd_logo_white.png) center center no-repeat;
+	width: 320px;
+	height: 90px;
+	margin-bottom: 10px;
+}
+
+body.login div#login p.message,
+body.login div#login #login_error {
+	background: #db650e;
+	border: 1px solid #000;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	color: #fff;
+}
+
+body.login div#login #login_error {
+	border: 3px solid red;
+}
+
+body.login div#login #login_error a {
+	color: #000;
+	font-weight: bold;
+}
+
+body.login div#login form {
+	background: #333;
+	border: 1px solid #000;
+	box-shadow: rgba(0, 0,0, 0.7) 0 4px 10px -1px;
+	-moz-box-shadow: rgba(0, 0,0, 0.7) 0 4px 10px -1px;
+	-webkit-box-shadow: rgba(0, 0,0, 0.7) 0 4px 10px -1px;
+}
+
+body.login div#login form input[type=text], 
+body.login div#login form input[type=password],
+body.login div#login form input[type=email],
+body.login div#login form textarea {
+	color: #888;
+	background: #1e1e1e;
+	border: 1px solid #343434;
+	outline: 0;
+	padding: 5px;
+	transition: background-color 300ms, border 300ms, color 300ms;  
+	-moz-transition: background-color 300ms, border 300ms, color 300ms;  
+	-webkit-transition: background-color 300ms, border 300ms, color 300ms;  
+}
+
+body.login div#login form input[type=text]::input-placeholder,
+body.login div#login form input[type=password]::input-placeholder,
+body.login div#login form input[type=email]::input-placeholder,
+body.login div#login form textarea::input-placeholder,
+body.login div#login form input[type=text]::-moz-input-placeholder,
+body.login div#login form input[type=password]::-moz-input-placeholder,
+body.login div#login form input[type=email]::-moz-input-placeholder,
+body.login div#login form textarea::-moz-input-placeholder,
+body.login div#login form input[type=text]::-webkit-input-placeholder,
+body.login div#login form input[type=password]::-webkit-input-placeholder,
+body.login div#login form input[type=email]::-webkit-input-placeholder,
+body.login div#login form textarea::-webkit-input-placeholder {
+	color: #888;
+}
+
+body.login div#login form input[type=text]:focus::input-placeholder,
+body.login div#login form input[type=password]:focus::input-placeholder,
+body.login div#login form input[type=email]:focus::input-placeholder,
+body.login div#login form textarea:focus::input-placeholder,
+body.login div#login form input[type=text]:focus::-moz-input-placeholder,
+body.login div#login form input[type=password]:focus::-moz-input-placeholder,
+body.login div#login form input[type=email]:focus::-moz-input-placeholder,
+body.login div#login form textarea:focus::-moz-input-placeholder,
+body.login div#login form input[type=text]:focus::-webkit-input-placeholder,
+body.login div#login form input[type=password]:focus::-webkit-input-placeholder,
+body.login div#login form input[type=email]:focus::-webkit-input-placeholder,
+body.login div#login form textarea:focus::-webkit-input-placeholder {
+	color: #ccc;
+}
+
+body.login div#login form input[type=text]:focus, 
+body.login div#login form input[type=password]:focus, 
+body.login div#login form textarea:focus {
+	color: #ccc;
+	background-color: #171717;
+	border: 1px solid #db650e;
+}
+
+body.login div form input[type=button], 
+body.login div form input[type=submit],
+body.login div form input[type=submit] {
+	padding: 10px 15px;
+	border: none;
+	background: #db650e;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	transition: background-color .2s ease-in; 
+	-moz-transition: background-color .2s ease-in;  
+	-webkit-transition: background-color .2s ease-in;  	 
+}
+
+body.login div#login form input[type=button]:hover, 
+body.login div#login form input[type=submit]:hover,
+body.login div#login form input[type=submit]:hover {
+	background: #FFB000;
+}
+
+body.login div#login form p label {
+	color: #999;
+}
+
+body.login div#login p#nav a,
+body.login div#login p#backtoblog a {
+	color: #DB650E !important;
+	text-shadow: none;
+}

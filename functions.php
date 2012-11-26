@@ -1,0 +1,250 @@
+<?php
+/**
+ * Disable admin bar.
+ */
+add_action('show_admin_bar', '__return_false');
+
+/**
+ * Clean up and remove unnecessary WP meta
+ */
+function remheadlink() { 
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'wp_generator');
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+}
+add_action('init', 'remheadlink');
+
+if ( !function_exists( 'nmd_enqueue_scripts' ) ) :
+/**
+ * Enqueue theme javascript safely
+ *
+ * @see http://codex.wordpress.org/Function_Reference/wp_enqueue_script
+ * @since 1.5
+ */
+function nmd_enqueue_scripts() {
+	// Theme Enqueue
+	wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery-1.8.3.min.js', array(), "1.8.3");
+    wp_enqueue_script( 'jquery' );
+	wp_register_script('jquery-transit', get_template_directory_uri().'/js/jquery.transit.js', array('jquery'), "0.1.3");
+	wp_enqueue_script('jquery-transit');
+	wp_register_script('nmd', get_template_directory_uri().'/js/nmd.js', array('jquery'), "2.8");
+	wp_enqueue_script('nmd');
+	wp_register_script( 'tinymce', get_template_directory_uri().'/js/tinymce/tiny_mce.js');
+	wp_enqueue_script('tinymce');
+	
+	// Lightbox Enqueue
+	wp_register_script('lightbox', get_template_directory_uri().'/js/lightbox/js/lightbox.js', array(), "2.51");
+	wp_enqueue_script('lightbox');
+	wp_register_style('lightbox', get_template_directory_uri().'/js/lightbox/css/lightbox.css');
+	wp_enqueue_style('lightbox');
+	
+	// WP Thickbox
+	wp_enqueue_style('thickbox');
+	wp_enqueue_script('thickbox');
+	
+	// NMD Servers Overlay Ajax Params
+	$overlay_params = array(
+		'ajax_url' 				=> admin_url('admin-ajax.php'),
+		'login_nonce' 			=> wp_create_nonce("overlay-post-action")
+	);
+
+	wp_localize_script('chatbox', 'overlay_params', $overlay_params );
+}
+add_action( 'wp_enqueue_scripts', 'nmd_enqueue_scripts' );
+endif;
+
+
+if ( !function_exists( 'overlay_post_ajax_process' ) ) :
+/**
+ * NMD Servers Overlay Ajax Functions
+ */
+function overlay_post_ajax_process() {
+	check_ajax_referer('overlay-post-action', 'security' );
+	
+	$servers = array(
+		array(
+			'id' => 'nmd_dayz',
+			'type' => 'armedassault2oa',
+			'host' => '94.76.229.69:2302',
+		),
+		array(
+			'id' => 'nmd_ace',
+			'type' => 'armedassault2oa',
+			'host' => '94.76.229.69:2316',
+		)
+	);
+
+	$gq = new GameQ();
+	$gq->addServers($servers);
+	$gq->setOption('timeout', 4);
+	$gq->setFilter('normalise');
+	$results = $gq->requestData();
+	
+
+	$return = array(
+		'nmd_dayz'	 => $results['nmd_dayz']['gq_numplayers'], 
+		'nmd_ace'	 => $results['nmd_ace']['gq_numplayers'],
+	);
+	
+	echo json_encode($return);
+	die();
+}
+add_action('wp_ajax_overlay_post_process', 'overlay_post_ajax_process');
+add_action('wp_ajax_nopriv_overlay_post_process', 'overlay_post_ajax_process');
+endif;
+
+
+if ( !function_exists( 'nmd_login_enqueue_scripts' ) ) :
+/**
+ * Login Page Scripts
+ */
+function nmd_login_enqueue_scripts() { ?>
+    <link rel="stylesheet" href="<?php echo get_bloginfo( 'stylesheet_directory' ) . '/login.css'; ?>" type="text/css" media="all" />
+<?php }
+add_action('login_enqueue_scripts', 'nmd_login_enqueue_scripts');
+endif;
+
+
+register_nav_menu('navigation', 'Navigation Menu');
+if ( function_exists('register_sidebar') )
+    register_sidebar(array(
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div></div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2><div class="widget-content">',
+));
+
+/**
+ * Set allowed tags for posts.
+ */
+function sanitize_allowedtags( $input ) {
+  global $allowedposttags, $allowedtags;
+    $allowedtags["ol"] = array();
+    $allowedtags["ul"] = array();
+    $allowedtags["li"] = array();
+    $allowedtags["span"]["style"] = array();
+	
+	$allowedtags["img"]["src"] = array();
+	$allowedtags["img"]["alt"] = array();
+	$allowedtags["img"]["title"] = array();
+	
+	$allowedtags["p"]["style"] = array();
+	$allowedtags["h1"]= array();
+	$allowedtags["h2"]= array();
+	$allowedtags["h3"]= array();
+	$allowedtags["h4"]= array();
+	$allowedtags["h5"]= array();
+	$allowedtags["h6"]= array();
+	$allowedtags["pre"]= array();
+	$allowedtags["address"]= array();
+	$allowedtags["hr"]= array();
+	
+	$allowedtags["a"]["target"] = array();
+	$allowedtags["a"]["class"] = array();
+	
+	return wpautop(wp_kses( $input, $allowedtags));
+}
+add_action('init', 'sanitize_allowedtags', 10);
+
+
+/**
+ * Load TinyMCE.
+ */
+function tinyMCE_forms() {
+?>
+<script type="text/javascript">
+	tinyMCE.init({
+		theme : "advanced",
+		mode: "exact",
+		skin : "default",
+		document_base_url : "<?php echo get_site_url(); ?>",
+		relative_urls : false,
+		plugins : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect,forecolor,styleprops,code,preview",
+		theme_advanced_buttons2: 'cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,hr,removeformat,outdent,indent,blockquote,|,link,unlink,emotions,|,spellchecker,image,|,fullscreen',
+		theme_advanced_buttons3: '',
+		theme_advanced_buttons4: '',
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : false,
+		width: '100%',
+		height: '200',
+		theme_advanced_resizing : false,
+		elements: 'comment'
+	});
+</script>
+<?php
+}
+add_action( 'wp_head', 'tinyMCE_forms' );
+
+if ( ! function_exists( 'nmd_comment' ) ) :
+/**
+ * Template for comments and pingbacks.
+ */
+function nmd_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+	$comment->comment_type;
+	switch ( $comment->comment_type ) :
+		case 'pingback':
+		case 'trackback':
+		break;
+	
+		default :
+	?>
+	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+		<div class="comment-title">
+			<h3><?php echo get_comment_author_link() ?></h3>
+		</div>
+		<div class="vcard">
+			<?php echo get_avatar($comment, 100); ?>
+			<time><?php echo get_comment_date() ?></time>
+		</div>
+		<div class="comment-content">
+			<?php if ( $comment->comment_approved == '0' ) : ?>
+				<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'nmd' ); ?></em>
+				<br />
+			<?php else : ?>
+				<?php comment_text(); ?>
+				<?php edit_comment_link('Edit', '<span class="edit-link">', '</span>'); ?>
+			<?php endif; ?>
+			<div class="clear"></div>
+		</div>
+	</li>
+	<?php
+		break;
+	endswitch;
+}
+endif; // ends check for nmd_comment()
+
+
+if ( ! function_exists( 'nmd_theme_setup' ) ) :
+/**
+ * Theme setup function.
+ */
+function nmd_theme_setup() {
+	require 'lib/GameQ.php'; 
+}
+add_action( 'after_setup_theme', 'nmd_theme_setup', 11 );
+endif;
+
+
+if ( ! function_exists( 'nmd_post_links' ) ) :
+/**
+ * Display navigation to next/previous pages when applicable
+ */
+function nmd_post_links() {
+	global $wp_query;
+
+	if ( $wp_query->max_num_pages > 1 ) : ?>
+		<nav id="post-nav">
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyeleven' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></div>
+		</nav><!-- #nav-above -->
+	<?php endif;
+}
+endif;
+
+?>

@@ -2,37 +2,6 @@
 </footer>
 
 <?php wp_footer(); ?>
-<?php 
-/*
-require 'lib/GameQ.php'; 
-
-$servers = array(
-	array(
-		'id' => 'NMD DayZ',
-		'type' => 'armedassault2oa',
-		'host' => '94.76.229.69:2302',
-	),
-	array(
-		'id' => 'NMD ACE',
-		'type' => 'armedassault2oa',
-		'host' => '94.76.229.69:2316',
-	)
-);
-
-$gq = new GameQ();
-$gq->addServers($servers);
-
-// You can optionally specify some settings
-$gq->setOption('timeout', 4); // Seconds
-
-// You can optionally specify some output filters,
-// these will be applied to the results obtained.
-$gq->setFilter('normalise');
-
-// Send requests, and parse the data
-$results = $gq->requestData();*/
-
-?>
 <div class="overlay six">
 	<a class="close">X</a>
 	<h2 class="title">Join our servers via Play withSix</h2>

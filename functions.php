@@ -133,19 +133,7 @@ function nmd_servers_overlay_ajax() {
 			'maxplayers' =>	$results['nmd_ace']['maxplayers'],
 		)
 	);
-	
-	
-	$shop = array( 
-		array( Title => "rose", 
-			Price => 1.25,
-			Number => 15 
-		),
-		array( Title => "daisy", 
-			Price => 0.75,
-			Number => 25,
-		)
-    );
-	
+		
 	echo json_encode( $return );
 	die();
 	

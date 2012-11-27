@@ -687,7 +687,7 @@ textarea:focus {
 }
 
 .overlay {
-	position: absolute;
+	position: fixed;
 	left: 50%;
 	top: 50%;
 	background: #111;

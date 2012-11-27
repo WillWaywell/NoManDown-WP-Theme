@@ -5,30 +5,16 @@
  */
 (function($){
 
-	$.fn.transitionElement = function(show, callback) {
-		if(show){
-			this.prepareTransition().addClass('show');
-		} else {
-			this.prepareTransition().removeClass('show');
-		}
-		
-		if(callback == undefined) return;
-		if($.support.transition){
-			this.one('TransitionEnd webkitTransitionEnd transitionend oTransitionEnd MSTransitionEnd', callback);
-		} else {
-			callback(this);
-		}
-	};
+	
   
 })(jQuery);
  
 $(function(){
-
 	// SIX Servers Overlay
 	$('#head .links .link.six').click(function(){
 		var sixButton = $(this);
-		$('#blackout').transitionElement(true, function(){
-			$('#loading').transitionElement(true);
+		$('#blackout').transition(true, function(){
+			$('#loading').transition(true);
 		});
 			
 	    var data = {
@@ -41,16 +27,16 @@ $(function(){
 			data: data,
 			type: 'POST',
 			dataType: 'json',
-			success: function(result) {
+			success: function(result){
 				$('.overlay.six .server-list .server:nth-child(1) .players .num').text(result['nmd_dayz']['numplayers'] + ' / ' + result['nmd_dayz']['maxplayers']);
 				$('.overlay.six .server-list .server:nth-child(2) .players .num').text(result['nmd_ace']['numplayers'] + ' / ' + result['nmd_ace']['maxplayers']);
 			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
+			error: function(XMLHttpRequest, textStatus, errorThrown){
 				console.log(errorThrown);
 			},
 			complete: function(){
-				$('#loading').transitionElement(false, function(){
-					$('.overlay.six').transitionElement(true);
+				$('#loading').transition(false, function(){
+					$('.overlay.six').transition(true);
 				});
 			}
 		});
@@ -60,8 +46,8 @@ $(function(){
 	$('.overlay a.close, #blackout').click(function(){
 		var overlay = $('.overlay:visible');
 		
-		overlay.transitionElement(false, function(){
-			$('#blackout').transitionElement(false);
+		overlay.transition(false, function(){
+			$('#blackout').transition(false);
 		});
 	});
 });

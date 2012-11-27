@@ -1,22 +1,17 @@
-/**
- *  prepareTransition
- *  jQuery Plugin for ensuring transitions with display:none or visibility:hidden
- *  are in the right state until the end of the transition
- *
- *  Developed by Jonathan Snook (http://snook.ca/)
- *  January 12, 2012
- *
- *  Requires the following CSS:
- *  .is-transitioning {
- *      display: block !important;
- *      visibility: visible !important;
- *  }
- *
- *  MIT license
- *  http://www.opensource.org/licenses/mit-license.php
- */
-
 (function($){
+
+$.support.placeholder = (function(){ 
+	var input = document.createElement('input');
+	return ('placeholder' in input);
+})();
+
+$.support.transition = (function(){ 
+    var thisBody = document.body || document.documentElement,
+    thisStyle = thisBody.style,
+    support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
+    
+    return support; 
+})();
 
 $.fn.prepareTransition = function(){
     return this.each(function(){
@@ -41,6 +36,22 @@ $.fn.prepareTransition = function(){
     });
 };
 
+$.fn.transition = function(show, callback) {
+	var el = $(this);
+	
+	if(show){
+		el.prepareTransition().addClass('show');
+	} else {
+		el.prepareTransition().removeClass('show');
+	}
+	
+	if(callback == undefined) return;
+	if($.support.transition){
+		el.one('TransitionEnd webkitTransitionEnd transitionend oTransitionEnd MSTransitionEnd', callback);
+	} else {
+		callback(el);
+	}
+};
 
 }(jQuery));
 

@@ -5,13 +5,21 @@
  */
 nmd = {};
 
-nmd.hasPlaceholderSupport = function(){
-  var input = document.createElement('input');
-  return ('placeholder' in input);
-}
+$.support.placeholder = (function(){ 
+	var input = document.createElement('input');
+	return ('placeholder' in input);
+})();
+
+$.support.transition = (function(){ 
+    var thisBody = document.body || document.documentElement,
+    thisStyle = thisBody.style,
+    support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
+    
+    return support; 
+})();
 
 $(function(){
-	if(!nmd.hasPlaceholderSupport()) {
+	if(!$.support.placeholder) {
 		$('input[type=text]').each(function() {
 			$(this).val($(this).attr('placeholder'));
 			

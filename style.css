@@ -143,6 +143,11 @@ table.mceLayout {
 	background: #FFF;
 }
 
+.is-transitioning {
+	display: block !important;
+	visibility: visible !important;
+}
+
 .clear,
 .clear-break {
 	clear: both;
@@ -671,6 +676,14 @@ textarea:focus {
 	opacity: 0;
 	z-index: 90;
 	display: none;
+	transition: opacity 400ms;
+	-moz-transition: opacity 400ms;
+	-webkit-transition: opacity 400ms;
+}
+
+#blackout.show {
+	display: block;
+	opacity: 1;
 }
 
 .overlay {
@@ -688,6 +701,20 @@ textarea:focus {
 	opacity: 0;
 	display: none;
 	z-index: 100;
+	transform: scale(.7);
+	-moz-transform: scale(.7);
+	-webkit-transform: scale(.7);
+	transition: opacity 400ms, transform 400ms;
+	-moz-transition: opacity 400ms, -moz-transform 400ms;
+	-webkit-transition: opacity 400ms, -webkit-transform 400ms;
+}
+
+.overlay.show {
+	display: block;
+	opacity: 1;
+	transform: scale(1);
+	-moz-transform: scale(1);
+	-webkit-transform: scale(1);
 }
 
 .overlay .close {
@@ -785,4 +812,12 @@ textarea:focus {
 	z-index: 100;	
 	opacity: 0;
 	display: none;
+	transition: opacity 400ms;
+	-moz-transition: opacity 400ms;
+	-webkit-transition: opacity 400ms;
+}
+
+#loading.show {
+	display: block;
+	opacity: 1;
 }

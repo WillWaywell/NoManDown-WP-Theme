@@ -499,6 +499,20 @@ textarea:focus {
 	margin-bottom: 0;
 }
 
+#post-nav {
+	background: rgba(20,20,20,.95);
+	margin-top: 20px;
+	padding: 5px 10px;
+	box-shadow: #000 0 0 20px;
+	-moz-box-shadow: #000 0 0 20px;
+	-webkit-box-shadow: #000 0 0 20px;
+	border: 6px solid #222;
+}
+
+#post-nav .nav-next {
+	float: right;
+}
+
 /* =Sidebar
 ----------------------------------------------- */
 #sidebar .widget .widget-title {

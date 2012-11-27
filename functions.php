@@ -120,14 +120,31 @@ function nmd_servers_overlay_ajax() {
 	$gq = new GameQ();
 	$gq->addServers( $servers );
 	$gq->setOption( 'timeout', 4 );
-	$gq->setFilter( 'normalise' );
 	$results = $gq->requestData();
 	
 
 	$return = array(
-		'nmd_dayz'	 => $results['nmd_dayz']['gq_numplayers'], 
-		'nmd_ace'	 => $results['nmd_ace']['gq_numplayers'],
+		'nmd_dayz'	 => array(
+			'numplayers' =>	$results['nmd_dayz']['numplayers'],
+			'maxplayers' =>	$results['nmd_dayz']['maxplayers'],
+		), 
+		'nmd_ace'	 => array(
+			'numplayers' =>	$results['nmd_ace']['numplayers'],
+			'maxplayers' =>	$results['nmd_ace']['maxplayers'],
+		)
 	);
+	
+	
+	$shop = array( 
+		array( Title => "rose", 
+			Price => 1.25,
+			Number => 15 
+		),
+		array( Title => "daisy", 
+			Price => 0.75,
+			Number => 25,
+		)
+    );
 	
 	echo json_encode( $return );
 	die();

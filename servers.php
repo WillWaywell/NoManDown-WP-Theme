@@ -23,7 +23,6 @@ $servers = array(
 $gq = new GameQ();
 $gq->addServers( $servers );
 $gq->setOption( 'timeout', 4 );
-$gq->setFilter( 'normalise' );
 
 $results = $gq->requestData();
 
@@ -41,8 +40,14 @@ $results = $gq->requestData();
 			</header>
 			<div class="post-inner">
 				<div class="post-content">
-					<p><?php print_r($results); ?></p>
+					<table>
+	
+					<?php print_r($results); ?>
+					</table>
 				</div>
+				
+				<div class="clear-break"></div>
+				<?php print_r($results['nmd_dayz']['players'][0]); ?>
 			</div>
 		</article>
 

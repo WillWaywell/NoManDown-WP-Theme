@@ -1,3 +1,8 @@
+/**
+ * File: CSS3 Transitions and Support
+ * Copyright: 2012 nomandown.com
+ * Author: Will Waywell
+ */
 (function($){
 
 $.support.placeholder = (function(){ 

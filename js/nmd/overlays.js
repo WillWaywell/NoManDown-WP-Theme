@@ -1,6 +1,6 @@
 /**
  * File: Servers Overlay Ajax
- * Copyright: 2012 NoManDown
+ * Copyright: 2012 nomandown.com
  * Author: Will Waywell
  */
 (function($){

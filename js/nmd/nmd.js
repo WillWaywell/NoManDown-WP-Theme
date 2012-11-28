@@ -1,6 +1,6 @@
 /**
  * File: NoManDown - General Javascript
- * Copyright: 2012 NoManDown
+ * Copyright: 2012 nomandown.com
  * Author: Will Waywell
  */
 nmd = {};

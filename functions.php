@@ -85,7 +85,6 @@ function nmd_enqueue_scripts() {
 	wp_enqueue_script( 'nmd_overlays' );
 	
 	$servers_overlay_params = array(
-		'ajax_url' 				=> admin_url( 'admin-ajax.php' ),
 		'login_nonce' 			=> wp_create_nonce( 'servers-overlay-action' )
 	);
 

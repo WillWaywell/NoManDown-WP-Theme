@@ -50,7 +50,7 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 				<?php if ( is_user_logged_in() ) : ?> 
 				<?php $current_user = wp_get_current_user(); ?>
 				<a href="<?php echo wp_logout_url(); ?>" title="Logout">Logout</a>
-				<a href="<?php echo site_url('/forums/users/'.$current_user->user_login) ?>" target="_blank">Profile<?php echo get_avatar($current_user->user_email, 26); ?></a>
+				<a href="<?php echo site_url('/forums/users/'.$current_user->user_login); ?>" target="_blank">Profile<?php echo get_avatar($current_user->user_email, 26); ?></a>
 				<?php else : ?> 
 				<a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
 				<a href="<?php echo wp_login_url(); ?>?action=register" title="Register">Register</a>

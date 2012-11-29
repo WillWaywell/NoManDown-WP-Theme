@@ -9,8 +9,7 @@ $(function(){
 	if(!$.support.placeholder) {
 		$('input[type=text]').each(function() {
 			$(this).val($(this).attr('placeholder'));
-			
-			
+
 			$(this).focus(function(){
 				if($(this).attr('value') == $(this).attr('placeholder')) { $(this).val(''); }
 			});

@@ -28,7 +28,7 @@ if ( ! function_exists( 'nmd_theme_setup' ) ) :
  */
 function nmd_theme_setup() {
 
-	require 'lib/GameQ.php'; 
+	require 'lib/arma2query.php'; 
 	
 	register_nav_menu('navigation', 'Navigation Menu');
 	
@@ -103,33 +103,18 @@ function nmd_servers_overlay_ajax() {
 
 	check_ajax_referer('servers-overlay-action', 'security' );
 	
-	$servers = array(
-		array(
-			'id' => 'nmd_dayz',
-			'type' => 'armedassault2oa',
-			'host' => '94.76.229.69:2302',
-		),
-		array(
-			'id' => 'nmd_ace',
-			'type' => 'armedassault2oa',
-			'host' => '94.76.229.69:2316',
-		)
-	);
+	$nmd_dayz = query_server("94.76.229.69", 2302);
+	$nmd_ace = query_server("94.76.229.69", 2316);
 
-	$gq = new GameQ();
-	$gq->addServers( $servers );
-	$gq->setOption( 'timeout', 4 );
-	$results = $gq->requestData();
-	
 
 	$return = array(
 		'nmd_dayz'	 => array(
-			'numplayers' =>	$results['nmd_dayz']['numplayers'],
-			'maxplayers' =>	$results['nmd_dayz']['maxplayers'],
+			'numplayers' =>	$nmd_dayz['numplayers'],
+			'maxplayers' =>	$nmd_dayz['maxplayers'],
 		), 
 		'nmd_ace'	 => array(
-			'numplayers' =>	$results['nmd_ace']['numplayers'],
-			'maxplayers' =>	$results['nmd_ace']['maxplayers'],
+			'numplayers' =>	$nmd_ace['numplayers'],
+			'maxplayers' =>	$nmd_ace['maxplayers'],
 		)
 	);
 		

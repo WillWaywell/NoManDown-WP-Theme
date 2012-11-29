@@ -4,29 +4,9 @@ Template Name: NMD - Servers
 */
 ?>
 
-<?php
-
-$gq = new GameQ();
-$servers = array(
-	array(
-		'id' => 'nmd_dayz',
-		'type' => 'armedassault2oa',
-		'host' => '94.76.229.69:2302',
-	),
-	array(
-		'id' => 'nmd_ace',
-		'type' => 'armedassault2oa',
-		'host' => '94.76.229.69:2316',
-	)
-);
-
-$gq = new GameQ();
-$gq->addServers( $servers );
-$gq->setOption( 'timeout', 4 );
-
-$results = $gq->requestData();
-
-?>
+<?php $nmd_dayz = query_server("94.76.229.69", 2302); ?>
+<?php //$nmd_ace = query_server("94.76.229.69", 2316); ?>
+<?php $nmd_ace = query_server("198.144.179.202", 2302); ?>
 
 <?php get_header(); ?>
 
@@ -41,13 +21,25 @@ $results = $gq->requestData();
 			<div class="post-inner">
 				<div class="post-content">
 					<table>
-	
-					<?php print_r($results); ?>
+						<tr>
+							<th>Player</th>
+							<th>Score</th>
+							<th>Deaths</th>
+						</tr>
+						<?php foreach($nmd_ace['players'] as $player) : ?>
+						
+						<tr>
+							<td><?php echo $player['name']; ?></td>
+							<td><?php echo $player['score']; ?></td>
+							<td><?php echo $player['deaths']; ?></td>
+						</tr>
+						
+						<?php endforeach; ?>
 					</table>
+					<?php //print_r($nmd_ace); ?>
 				</div>
 				
 				<div class="clear-break"></div>
-				<?php print_r($results['nmd_dayz']['players'][0]); ?>
 			</div>
 		</article>
 

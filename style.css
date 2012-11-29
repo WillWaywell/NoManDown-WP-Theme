@@ -12,6 +12,7 @@ Tags: arma2, arma3, dark, nomandown, bbpress
 
 /* =Font: Droid Sans
 ----------------------------------------------- */
+/*
 @font-face {
 	font-family: 'Droid Sans';
 	font-style: normal;
@@ -24,6 +25,7 @@ Tags: arma2, arma3, dark, nomandown, bbpress
 	font-weight: bold;
 	src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/DroidSans-Bold.woff) format('woff');
 }
+*/
 
 /* =General
 ----------------------------------------------- */

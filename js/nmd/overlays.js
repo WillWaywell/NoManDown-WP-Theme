@@ -3,12 +3,6 @@
  * Copyright: 2012 nomandown.com
  * Author: Will Waywell
  */
-(function($){
-
-	
-  
-})(jQuery);
- 
 $(function(){
 	// SIX Servers Overlay
 	$('#head .links .link.six').click(function(){

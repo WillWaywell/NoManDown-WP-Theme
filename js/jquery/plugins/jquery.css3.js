@@ -19,6 +19,7 @@ $.support.transition = (function(){
 })();
 
 $.fn.prepareTransition = function(){
+	if(!$.support.transition) return this;
     return this.each(function(){
         var el = $(this);
         // remove the transition class upon completion
@@ -59,4 +60,3 @@ $.fn.transition = function(show, callback) {
 };
 
 }(jQuery));
-

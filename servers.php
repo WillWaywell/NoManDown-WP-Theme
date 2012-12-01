@@ -26,6 +26,7 @@ Template Name: NMD - Servers
 							<th>Score</th>
 							<th>Deaths</th>
 						</tr>
+						<?php if($nmd_ace['numplayers'] > 0) : ?>
 						<?php foreach($nmd_ace['players'] as $player) : ?>
 						
 						<tr>
@@ -35,10 +36,10 @@ Template Name: NMD - Servers
 						</tr>
 						
 						<?php endforeach; ?>
+						<?php endif; ?>
 					</table>
 					<?php //print_r($nmd_ace); ?>
 				</div>
-				
 				<div class="clear-break"></div>
 			</div>
 		</article>

@@ -10,23 +10,6 @@ Version: 1.0
 Tags: arma2, arma3, dark, nomandown, bbpress
 */
 
-/* =Font: Droid Sans
------------------------------------------------ */
-/*
-@font-face {
-	font-family: 'Droid Sans';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Droid Sans'), local('DroidSans'), url(fonts/DroidSans.woff) format('woff');
-}
-@font-face {
-	font-family: 'Droid Sans';
-	font-style: normal;
-	font-weight: bold;
-	src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/DroidSans-Bold.woff) format('woff');
-}
-*/
-
 /* =General
 ----------------------------------------------- */
 * {
@@ -34,9 +17,8 @@ Tags: arma2, arma3, dark, nomandown, bbpress
 	margin: 0;
 }
 
-:focus {
-	outline: 0;
-}
+::-moz-selection { background: #db650e; color:#FFF; text-shadow: none; }
+::selection { background:#db650e; color:#FFF; text-shadow: none; }
 
 body {
 	background: #0F0F0F url(img/body_bg.jpg) center top no-repeat;
@@ -47,8 +29,19 @@ body {
 	color: #ddd;
 }
 
-::-moz-selection { background: #db650e; color:#FFF; text-shadow: none; }
-::selection { background:#db650e; color:#FFF; text-shadow: none; }
+a {
+	color: #db650e;
+	cursor: pointer;
+	text-decoration: none;
+	font-weight: bold;
+	transition: color 200ms;
+	-moz-transition: color 200ms;  	
+	-webkit-transition: color 200ms;  
+}
+
+a:hover {
+	color: #FFB000;
+}
 
 h1,
 h2,
@@ -113,20 +106,6 @@ table tr th {
 	vertical-align: middle;
 }
 
-a {
-	color: #db650e;
-	cursor: pointer;
-	text-decoration: none;
-	font-weight: bold;
-	transition: color 200ms;
-	-moz-transition: color 200ms;  	
-	-webkit-transition: color 200ms;  
-}
-
-a:hover {
-	color: #FFB000;
-}
-
 p {
 	margin: 15px 0;
 	word-wrap: break-word;
@@ -169,33 +148,52 @@ table.mceLayout {
 	font-weight: bold;	
 }
 
-input {
+input,
+input:focus {
 	outline: 0;
 }
 
 input[type=button], 
 input[type=submit],
 button[type=submit],
-button {
+button,
+.button {
+	display: inline-block;
 	padding: 5px 20px;
-	border: none;
 	background: #db650e;
 	color: #fff;
+	font-size: 15px;
+	line-height: 1em;
 	font-weight: bold;
+	text-align: center;
 	cursor: pointer;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
+	border: 1px solid #222;
 	transition: background-color 300ms; 
 	-moz-transition: background-color 300ms;  
-	-webkit-transition: background-color 300ms;  	 
+	-webkit-transition: background-color 300ms;  
+	appearance: none;	
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
 input[type=button]:hover, 
 input[type=submit]:hover,
 button[type=submit]:hover,
-button:hover {
+button:hover,
+.button:hover {
 	background: #FFB000;
+	color: #fff;
+}
+
+input[type=button]:disabled, 
+input[type=submit]:disabled,
+button[type=submit]:disabled,
+button:disabled,
+.button.disabled {
+	background: #444 !important;
 }
 
 input[type=text], 
@@ -210,6 +208,9 @@ textarea {
 	transition: background-color 300ms, border 300ms, color 300ms;  
 	-moz-transition: background-color 300ms, border 300ms, color 300ms;  
 	-webkit-transition: background-color 300ms, border 300ms, color 300ms;  
+	appearance: none;	
+	-moz-appearance: none;
+	-webkit-appearance: none;
 }
 
 input[type=text]::input-placeholder,

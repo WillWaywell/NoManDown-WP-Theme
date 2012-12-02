@@ -5,6 +5,7 @@ function query_server($ip, $port)
 	// OPEN THE QUERY SOCKET
 	// --------------------------------
 	$socket = fsockopen("udp://" . $ip, $port, $errno, $errstr, 1);
+	stream_set_timeout($socket, 1); 
 	
 	// GET CHALLENGE CODE
 	// --------------------------------

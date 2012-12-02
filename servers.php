@@ -5,8 +5,8 @@ Template Name: NMD - Servers
 ?>
 
 <?php $nmd_dayz = query_server("94.76.229.69", 2302); ?>
-<?php //$nmd_ace = query_server("94.76.229.69", 2316); ?>
-<?php $nmd_ace = query_server("198.144.179.202", 2302); ?>
+<?php $nmd_ace = query_server("94.76.229.69", 2316); ?>
+<?php //$nmd_ace = query_server("198.144.179.202", 2302); ?>
 
 <?php get_header(); ?>
 
@@ -20,13 +20,15 @@ Template Name: NMD - Servers
 			</header>
 			<div class="post-inner">
 				<div class="post-content">
+				<?php if($nmd_ace) : ?>
+				<?php if($nmd_ace['numplayers'] > 0) : ?>
 					<table>
 						<tr>
 							<th>Player</th>
 							<th>Score</th>
 							<th>Deaths</th>
 						</tr>
-						<?php if($nmd_ace['numplayers'] > 0) : ?>
+						
 						<?php foreach($nmd_ace['players'] as $player) : ?>
 						
 						<tr>
@@ -36,11 +38,12 @@ Template Name: NMD - Servers
 						</tr>
 						
 						<?php endforeach; ?>
-						<?php endif; ?>
+						
 					</table>
-					<?php //print_r($nmd_ace); ?>
+				<?php endif; ?>
+				<?php endif; ?>
+				<?php //print_r($nmd_ace); ?>
 				</div>
-				<div class="clear-break"></div>
 			</div>
 		</article>
 

@@ -22,8 +22,8 @@ $(function(){
 			type: 'POST',
 			dataType: 'json',
 			success: function(result){
-				$('.overlay.six .server-list .server:nth-child(1) .players .num').text(result['nmd_dayz']['numplayers'] + ' / ' + result['nmd_dayz']['maxplayers']);
-				$('.overlay.six .server-list .server:nth-child(2) .players .num').text(result['nmd_ace']['numplayers'] + ' / ' + result['nmd_ace']['maxplayers']);
+				$('.overlay.six .server.dayz .details .players .num').text(result['nmd_dayz']['numplayers'] + ' / ' + result['nmd_dayz']['maxplayers']);
+				$('.overlay.six .server.ace .details .players .num').text(result['nmd_ace']['numplayers'] + ' / ' + result['nmd_ace']['maxplayers']);
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown){
 				console.log(errorThrown);

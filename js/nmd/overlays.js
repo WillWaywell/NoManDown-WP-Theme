@@ -30,7 +30,11 @@ $(function(){
 			},
 			complete: function(){
 				$('#loading').transition(false, function(){
-					$('.overlay.six').transition(true);
+					var overlay = $('.overlay.six');
+					
+					overlay.css('margin-top', -(overlay.outerHeight() / 2));
+					overlay.css('margin-left', -(overlay.outerWidth() / 2));
+					overlay.transition(true);
 				});
 			}
 		});

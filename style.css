@@ -52,6 +52,7 @@ h1, h2, h3, h4, h5 {
 	font-weight: normal;
 	color: white;
 	margin: 15px 0;
+	line-height: 1.1em;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a {
@@ -443,6 +444,7 @@ textarea:focus {
 	border-top: 1px solid #000;
 	padding: 0 15px;
 	font-size: 26px;
+	line-height: 44px;
 	margin: 0;
 }
 
@@ -478,11 +480,11 @@ textarea:focus {
 	word-wrap: break-word;
 }
 
-.post-content > p:first-child {
+.post-content > :first-child {
 	margin-top: 0;
 }
 
-.post-content > p:last-child {
+.post-content > :last-child {
 	margin-bottom: 0;
 }
 
@@ -512,6 +514,7 @@ textarea:focus {
 	border-bottom: 1px solid #000;
 	padding: 0 15px 0 9px;
 	font-size: 26px;
+	line-height: 44px;
 	margin: 0;
 }
 
@@ -542,6 +545,7 @@ textarea:focus {
 	margin-top: 15px;
 	border-top: 1px solid #000;
 	border-bottom: 1px solid #000;
+	line-height: 44px;
 }
 
 #comments .comments {
@@ -577,6 +581,7 @@ textarea:focus {
 	border-radius: 4px 4px 0 0;
 	-moz-border-radius: 4px 4px 0 0;
 	-webkit-border-radius: 4px 4px 0 0;
+	line-height: 34px;
 	margin: 0;
 }
 
@@ -717,7 +722,6 @@ textarea:focus {
 .overlay.six {
 	margin: -150px 0 0 -276px;
 	width: 500px;
-	height: 300px;
 	padding: 20px;
 }
 
@@ -733,18 +737,22 @@ textarea:focus {
 	font-size: 10px;
 }
 
-.overlay.six .server-list {
-	margin: 0;
-	list-style: none;
-}
-
-.overlay.six .server-list .server {
+.overlay.six .server {
+	display: block;
+	color: inherit;
 	background: #171717;
 	margin-top: 10px;
 	padding: 10px;
+	transition: background 400ms;
+	-moz-transition: background 400ms;
+	-webkit-transition: background 400ms;
 }
 
-.overlay.six .server-list .server .logo {
+.overlay.six .server:hover {
+	background: #222;
+}
+
+.overlay.six .server .logo {
 	width: 115px;
 	height: 90px;
 	float: left;
@@ -752,38 +760,34 @@ textarea:focus {
 	border-right: 4px solid #333;
 }
 
-.overlay.six .server-list .server.dayz .logo {
+.overlay.six .server.dayz .logo {
 	background: url(img/logos/dayz_logo.png) left center no-repeat;
 }
 
-.overlay.six .server-list .server.ace .logo {
+.overlay.six .server.ace .logo {
 	background: url(img/logos/ace_logo.png) left center no-repeat;
 }
 
-.overlay.six .server-list .server .details {
+.overlay.six .server .details {
 	float: right;
 	width: 321px;
-	height: 90px;
-	padding: 0 0 0 10px;
+	height: 60px;
+	padding: 15px 0 15px 10px;
 }
 
-.overlay.six .server-list .server .details .server-title {
+.overlay.six .server .details .server-title {
+	text-align: center;
+	margin: 0;
+}
+
+.overlay.six .server .details .meta {
 	text-align: center;
 }
 
-.overlay.six .server-list .server .details .players {
-	margin: 0 0 5px 0;
-	text-align: center;
-	font-size: 11px;
-}
-
-.overlay.six .server-list .server .details button {
+.overlay.six .server .details .players {
 	display: block;
-	margin: 0 auto;
-}
-
-.overlay.six .server-list .server .details button a {
-	color: #fff;
+	font-size: 11px;
+	margin-bottom: 5px;
 }
 
 /* =Ajax Loader

@@ -1,7 +1,3 @@
-<footer>
-</footer>
-
-<?php wp_footer(); ?>
 <div class="overlay six">
 	<a class="close">X</a>
 	<h2 class="title">Join our servers via Play withSix</h2>
@@ -30,5 +26,20 @@
 <div id="blackout"></div>
 <div id="loading"></div>
 
+<?php wp_footer(); ?>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36742315-1']);
+  _gaq.push(['_setDomainName', 'nomandown.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>

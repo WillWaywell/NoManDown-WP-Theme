@@ -30,7 +30,7 @@ $(function(){
 			},
 			complete: function(){
 				$('#loading').transition(false, function(){
-					var overlay = $('.overlay.six');
+					overlay = $('.overlay.six');
 					
 					overlay.css('margin-top', -(overlay.outerHeight() / 2));
 					overlay.css('margin-left', -(overlay.outerWidth() / 2));
@@ -42,7 +42,7 @@ $(function(){
 	
 	// Handle overlay closing
 	$('.overlay a.close, #blackout').click(function(){
-		var overlay = $('.overlay:visible');
+		overlay = $('.overlay:visible');
 		
 		overlay.transition(false, function(){
 			$('#blackout').transition(false);

@@ -2,11 +2,13 @@
 /*
 Template Name: NMD - Servers
 */
+
+$servers = array();
+array_push($servers, query_server("94.76.229.69", 2302));
+array_push($servers, query_server("94.76.229.69", 2316));
+
 ?>
 
-<?php $nmd_dayz = query_server("94.76.229.69", 2302); ?>
-<?php $nmd_ace = query_server("94.76.229.69", 2316); ?>
-<?php //$nmd_ace = query_server("198.144.179.202", 2302); ?>
 
 <?php get_header(); ?>
 
@@ -20,28 +22,43 @@ Template Name: NMD - Servers
 			</header>
 			<div class="post-inner">
 				<div class="post-content">
-				<?php if($nmd_ace) : ?>
-				<?php if($nmd_ace['numplayers'] > 0) : ?>
-					<table>
-						<tr>
-							<th>Player</th>
-							<th>Score</th>
-							<th>Deaths</th>
-						</tr>
-						
-						<?php foreach($nmd_ace['players'] as $player) : ?>
-						
-						<tr>
-							<td><?php echo $player['name']; ?></td>
-							<td><?php echo $player['score']; ?></td>
-							<td><?php echo $player['deaths']; ?></td>
-						</tr>
-						
-						<?php endforeach; ?>
-						
-					</table>
-				<?php endif; ?>
-				<?php endif; ?>
+				
+				<?php foreach($servers as $server) : ?>
+					<?php if($server) : ?>
+						<ul>
+							<li><?php echo $server['hostname']; ?></li>
+							<li><?php echo $server['gametype']; ?></li>
+							<li><?php echo $server['mapname']; ?></li>
+							<li><?php echo $server['numplayers']; ?></li>
+							<li><?php echo $server['maxplayers']; ?></li>
+							<li><?php echo $server['password']; ?></li>
+							<li><?php echo $server['currentversion']; ?></li>
+						</ul>
+						<?php if($server['numplayers'] > 0) : ?>
+							<table>
+								<tr>
+									<th>Player</th>
+									<th>Score</th>
+									<th>Deaths</th>
+								</tr>
+								
+								<?php foreach($server['players'] as $player) : ?>
+
+								<tr>
+									<td><?php echo $player['name']; ?></td>
+									<td><?php echo $player['score']; ?></td>
+									<td><?php echo $player['deaths']; ?></td>
+								</tr>
+								
+								<?php endforeach; ?>
+								
+							</table>
+						<?php endif; // End player count check ?>
+					<?php endif; // End online status check ?>
+					
+				<?php endforeach; ?>
+				
+				
 				<?php //print_r($nmd_ace); ?>
 				</div>
 			</div>

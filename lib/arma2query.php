@@ -15,7 +15,7 @@ function query_server($ip, $port)
 
 	$challenge_packet = fread($socket, 4096);
 
-	if (!$challenge_packet) { return FALSE; }
+	if (!$challenge_packet) return false;
 
 	$challenge_code = substr($challenge_packet, 5, -1); // REMOVE HEADER AND TRAILING NULL
 	$challenge_code = $challenge_code ? chr($challenge_code >> 24).chr($challenge_code >> 16).chr($challenge_code >> 8).chr($challenge_code >> 0) : "";
@@ -34,7 +34,7 @@ function query_server($ip, $port)
 		$packet_count ++;
 		$packet = fread($socket, 4096);
 
-		if (!$packet) { return FALSE; }
+		if (!$packet) return false;
 
 		$packet       = substr($packet, 14); // REMOVE SPLITNUM HEADER
 		$packet_order = ord(cut_byte($packet, 1));
@@ -93,8 +93,6 @@ function query_server($ip, $port)
 	{
 		$result[$key] = cut_string($buffer);
 	}
-
-	$lgsl_conversion = array("name"=>"hostname", "game"=>"gamename", "map"=>"mapname", "players"=>"numplayers", "playersmax"=>"maxplayers", "password"=>"password");
 
 	if ($result['numplayers'] == "0") { return $result; } // IF SERVER IS EMPTY SKIP THE PLAYER CODE
 

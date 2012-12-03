@@ -23,8 +23,8 @@ array_push($servers, query_server("94.76.229.69", 2316));
 			<div class="post-inner">
 				<div class="post-content">
 				
-				<?php foreach($servers as $server) : ?>
-					<?php if($server) : ?>
+				<?php foreach( $servers as $server ) : ?>
+					<?php if( $server ) : ?>
 						<ul>
 							<li><?php echo $server['hostname']; ?></li>
 							<li><?php echo $server['gametype']; ?></li>
@@ -34,7 +34,7 @@ array_push($servers, query_server("94.76.229.69", 2316));
 							<li><?php echo $server['password']; ?></li>
 							<li><?php echo $server['currentversion']; ?></li>
 						</ul>
-						<?php if($server['numplayers'] > 0) : ?>
+						<?php if( $server['numplayers'] > 0 ) : ?>
 							<table>
 								<tr>
 									<th>Player</th>
@@ -42,7 +42,7 @@ array_push($servers, query_server("94.76.229.69", 2316));
 									<th>Deaths</th>
 								</tr>
 								
-								<?php foreach($server['players'] as $player) : ?>
+								<?php foreach( $server['players'] as $player ) : ?>
 
 								<tr>
 									<td><?php echo $player['name']; ?></td>

@@ -5,7 +5,7 @@
  */
 $(function(){
 	// SIX Servers Overlay
-	$('#head .links .link.six').click(function(){
+	$('#links .link.six').click(function(){
 		var sixButton = $(this);
 		$('#blackout').transition(true, function(){
 			$('#loading').transition(true);

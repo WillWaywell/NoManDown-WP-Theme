@@ -23,17 +23,14 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>?ver=5.92" />
 <link rel='icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
 <link rel='shortcut icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
-<!--[if IE 9]>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/ie.html5.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5.min.js"></script>
 <![endif]-->
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <nav id="nav">
 	<div class="wrap">
-		<a href="<?php bloginfo('url'); ?>" class="nav-logo">
-			<h1>No Man Down</h1>
-		</a>
 		<?php 
 			
 			$defaults = array(
@@ -49,23 +46,24 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 			<div class="account">
 				<?php if ( is_user_logged_in() ) : ?> 
 				<?php $current_user = wp_get_current_user(); ?>
-				<a href="<?php echo wp_logout_url(); ?>" title="Logout">Logout</a>
-				<a href="<?php echo site_url('/forums/users/'.$current_user->user_login); ?>">Profile<?php echo get_avatar($current_user->user_email, 26); ?></a>
+					<a href="<?php echo wp_logout_url(); ?>" title="Logout">Logout</a>
+					<a href="<?php echo site_url('/forums/users/'.$current_user->user_login); ?>">Profile<?php echo get_avatar($current_user->user_email, 26); ?></a>
 				<?php else : ?> 
-				<a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
-				<a href="<?php echo wp_login_url(); ?>?action=register" title="Register">Register</a>
+					<a href="<?php echo wp_login_url(); ?>?action=register" title="Register">Register</a>
+					<a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
 				<?php endif; ?> 
 			</div>	
 		</div>
 	</div>
 </nav>
-<div class="clear-break"></div>
 <header id="head" class="wrap">
-	<div class="links">
-		<a class="link six" title="Join a server">Play</a>
-		<a href="http://www.youtube.com/user/HepHeppington" target="_blank" class="link youtube" title="Youtube channel">Youtube</a>
-		<a href="http://www.facebook.com/NoManDownCommunity" target="_blank" class="link facebook" title="Facebook community">Facebook</a>
-		<a href="<?php bloginfo('rss2_url'); ?>" target="_blank" class="link rss" title="RSS Feed">Feeds</a>
-		<div class="clear"></div>
-	</div>
+	<h1 class="site-title">No Man Down</h1>
+	<p class="tagline">You're only as strong as your weakest link</p>
 </header>
+<div id="links" class="wrap">
+	<a class="link six" title="Join a server">Play</a>
+	<a href="http://www.youtube.com/user/HepHeppington" target="_blank" class="link youtube" title="Youtube channel">Youtube</a>
+	<a href="http://www.facebook.com/NoManDownCommunity" target="_blank" class="link facebook" title="Facebook community">Facebook</a>
+	<a href="<?php bloginfo('rss2_url'); ?>" target="_blank" class="link rss" title="RSS Feed">Feeds</a>
+	<div class="clear"></div>
+</div>

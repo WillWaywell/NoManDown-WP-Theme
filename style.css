@@ -17,8 +17,17 @@ Tags: arma2, arma3, dark, nomandown, bbpress
 	margin: 0;
 }
 
-::-moz-selection { background: #db650e; color:#FFF; text-shadow: none; }
-::selection { background:#db650e; color:#FFF; text-shadow: none; }
+::selection { 
+	background:#db650e; 
+	color:#FFF; 
+	text-shadow: none; 
+}
+
+::-moz-selection { 
+	background: #db650e; 
+	color:#FFF; 
+	text-shadow: none; 
+}
 
 html { 
 	-webkit-font-smoothing: antialiased; 
@@ -30,7 +39,7 @@ body {
 	background-attachment: fixed;
 	font: 13px Helvetica,Geneva,Tahoma,sans-serif;
 	line-height: 1.625;
-	color: #ddd;
+	color: #DDD;
 }
 
 a {
@@ -51,7 +60,7 @@ a:hover {
 h1, h2, h3, h4, h5 {
 	font-weight: normal;
 	color: white;
-	margin: 15px 0;
+	margin: 0.75em 0;
 	line-height: 1.1em;
 }
 
@@ -85,8 +94,8 @@ header, footer, nav, aside, figure, article, section, hgroup {
 }
 
 table {
-    border-collapse:collapse; 
-	border-spacing:0;
+    border-collapse: collapse; 
+	border-spacing: 0;
 }
 
 p {
@@ -124,11 +133,6 @@ table.mceLayout {
 	margin-bottom: 5px;
 }
 
-.error {
-	color: red;
-	font-weight: bold;	
-}
-
 input,
 input:focus {
 	outline: 0;
@@ -155,8 +159,8 @@ button,
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+	-moz-box-sizing: -moz-border-box;
+	-webkit-box-sizing: -webkit-border-box;
 }
 
 input[type=button]:hover, 

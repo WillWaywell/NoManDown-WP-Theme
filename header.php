@@ -58,7 +58,7 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 </nav>
 <header id="head" class="wrap">
 	<h1 class="site-title">No Man Down</h1>
-	<p class="tagline">You're only as strong as your weakest link</p>
+	<p class="tagline">&#8220;You're only as strong as your weakest link&#8221;</p>
 </header>
 <div id="links" class="wrap">
 	<a class="link six" title="Join a server">Play</a>

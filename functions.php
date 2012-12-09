@@ -193,22 +193,20 @@ function nmd_load_tinyMCE() {
 		plugins : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
 		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect,forecolor,styleprops,code,preview",
 		theme_advanced_buttons2: 'cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,hr,removeformat,outdent,indent,blockquote,|,link,unlink,emotions,|,spellchecker,image,|,fullscreen',
-		theme_advanced_buttons3: '',
-		theme_advanced_buttons4: '',
 		theme_advanced_toolbar_location : "top",
 		theme_advanced_toolbar_align : "left",
 		theme_advanced_statusbar_location : "bottom",
-		theme_advanced_resizing : false,
 		width: '100%',
 		height: '220',
-		theme_advanced_resizing : false,
+		theme_advanced_resizing : true,
+		theme_advanced_resize_horizontal : false,
 		elements: 'comment'
 	});
 </script>
 <?php
 
 }
-add_action( 'wp_head', 'nmd_load_tinyMCE' );
+add_action( 'comment_form_after', 'nmd_load_tinyMCE' );
 
 
 if ( ! function_exists( 'nmd_comment' ) ) :
@@ -232,7 +230,7 @@ function nmd_comment( $comment, $args, $depth ) {
 		</div>
 		<div class="vcard">
 			<?php echo get_avatar($comment, 100); ?>
-			<time><?php echo get_comment_date() ?></time>
+			<time><?php echo get_comment_date("d M - H:i") ?></time>
 		</div>
 		<div class="comment-content">
 			<?php if ( $comment->comment_approved == '0' ) : ?>

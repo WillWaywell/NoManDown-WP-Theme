@@ -27,18 +27,9 @@ $.fn.prepareTransition = function(){
             el.removeClass('is-transitioning');
         });
 
-        // check the various CSS properties to see if a duration has been set
-        var cl = ["transition-duration", "-moz-transition-duration", "-webkit-transition-duration", "-o-transition-duration", "-ms-transition-duration"];
-        var duration = 0;
-        $.each(cl, function(idx, itm){
-            duration || (duration = parseFloat( el.css( itm ) ));
-        });
-
-        // if I have a duration then add the class
-        if (duration != 0) {
-            el.addClass('is-transitioning');
-            el[0].offsetWidth; // check offsetWidth to force the style rendering
-        };
+        
+		el.addClass('is-transitioning');
+		el[0].offsetWidth; // check offsetWidth to force the style rendering
     });
 };
 

@@ -805,7 +805,7 @@ textarea:focus {
 	margin: -33px 0 0 -50px;
 	width: 100px;
 	height: 60px;
-	background: #000 url(img/loading.gif) center center no-repeat;
+	background: #111 url(img/loading.gif) center center no-repeat;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;

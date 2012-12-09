@@ -38,7 +38,7 @@ $(function(){
 				});
 			}
 		});
-	});	
+	});
 	
 	// Handle overlay closing
 	$('.overlay a.close, #blackout').click(function(){

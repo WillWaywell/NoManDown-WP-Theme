@@ -841,6 +841,9 @@ textarea:focus {
 	transition: opacity 400ms;
 	-moz-transition: opacity 400ms;
 	-webkit-transition: opacity 400ms;
+	box-shadow: #000 0 0 20px;
+	-moz-box-shadow: #000 0 0 20px;
+	-webkit-box-shadow: #000 0 0 20px;
 }
 
 #loading.show {

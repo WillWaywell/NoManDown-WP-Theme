@@ -847,11 +847,16 @@ fieldset div.avatar {
 	padding: 5px 8px;
 	display: block;
 	text-decoration: none;
-	color: #fff;
+	color: #888;
+}
+
+#bbpress-forums #bbp-single-user-details #bbp-user-navigation a:hover {
+	color: #FFF;
 }
 
 #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current a {
-	background: #DB650E;
+	color: #FFF;
+	border-right: 4px solid #DB650E;
 }
 
 #bbpress-forums #bbp-user-body {

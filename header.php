@@ -20,7 +20,7 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 </title>
 <meta charset="<?php bloginfo('charset'); ?>" />
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rss2_url'); ?>" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>?ver=5.92" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>?ver=1.0" />
 <link rel='icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
 <link rel='shortcut icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
 <!--[if lt IE 9]>

@@ -141,7 +141,7 @@ class BBP_Default extends BBP_Theme_Compat {
 	public function enqueue_styles() {
 
 		// LTR or RTL
-		$file = is_rtl() ? 'css/bbpress-rtl.css' : 'css/bbpress.css';
+		$file = 'bbpress.css';
 
 		// Check child theme
 		if ( file_exists( trailingslashit( get_stylesheet_directory() ) . $file ) ) {

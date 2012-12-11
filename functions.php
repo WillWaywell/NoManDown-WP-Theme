@@ -67,8 +67,6 @@ function nmd_enqueue_scripts() {
 	wp_enqueue_script( 'jquery-css3' );
 	wp_register_script( 'nmd', get_template_directory_uri().'/js/nmd/nmd.js', array('jquery'), "1.0" );
 	wp_enqueue_script( 'nmd' );
-	wp_register_script( 'tinymce', get_template_directory_uri().'/js/tinymce/tiny_mce.js', array('jquery'), "3.5.8" );
-	wp_enqueue_script( 'tinymce' );
 	
 	// Lightbox Enqueue
 	wp_register_script( 'lightbox', get_template_directory_uri().'/js/lightbox/js/lightbox.js', array(), "2.51" );
@@ -180,33 +178,25 @@ endif;	//ends check for nmd_sanitize_allowedtags()
 /**
  * Load TinyMCE.
  */
-function nmd_load_tinyMCE() {
+function nmd_comment_form_field_comment() {
 
-?>
-<script type="text/javascript">
-	tinyMCE.init({
-		theme : "advanced",
-		mode: "exact",
-		skin : "default",
-		document_base_url : "<?php echo get_site_url(); ?>",
-		relative_urls : false,
-		plugins : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
-		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect,forecolor,styleprops,code,preview",
-		theme_advanced_buttons2: 'cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,hr,removeformat,outdent,indent,blockquote,|,link,unlink,emotions,|,spellchecker,image,|,fullscreen',
-		theme_advanced_toolbar_location : "top",
-		theme_advanced_toolbar_align : "left",
-		theme_advanced_statusbar_location : "bottom",
-		width: '100%',
-		height: '220',
-		theme_advanced_resizing : true,
-		theme_advanced_resize_horizontal : false,
-		elements: 'comment'
-	});
-</script>
-<?php
+	if (!is_single()) return $field; //only on single post pages.
+	global $post;
 
+	ob_start();
+
+	wp_editor( '', 'comment', array(
+		'textarea_rows' => 12,
+		'media_buttons' => false,
+	) );
+
+	$editor = ob_get_contents();
+
+	ob_end_clean();
+
+	return $editor;
 }
-add_action( 'comment_form_after', 'nmd_load_tinyMCE' );
+add_action( 'comment_form_field_comment', 'nmd_comment_form_field_comment' );
 
 
 if ( ! function_exists( 'nmd_comment' ) ) :

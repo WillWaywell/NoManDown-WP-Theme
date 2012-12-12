@@ -4,9 +4,8 @@
 
 ## Libraries ##
 
-This project uses the following libraries:
+This theme uses the following libraries:
 
 * [jQuery](http://jquery.com)
-* [TinyMCE](http://www.tinymce.com/index.php)
 * [Lightbox](http://lokeshdhakar.com/projects/lightbox2)
-
+* [HTML5 Shiv] (http://code.google.com/p/html5shiv/)

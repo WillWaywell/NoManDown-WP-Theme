@@ -1,6 +1,6 @@
 # No Man Down Wordpress Theme #
 
-`Wordpress Version: 3.4.2` 
+`Wordpress Version: 3.5` 
 
 ## Libraries ##
 

@@ -43,6 +43,7 @@ $(function(){
 	// Handle overlay closing
 	$('.overlay a.close, #blackout').click(function(){
 		overlay = $('.overlay:visible');
+		if(!overlay.hasClass('show')) return;
 		
 		overlay.transition(false, function(){
 			$('#blackout').transition(false);

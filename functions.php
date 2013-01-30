@@ -61,7 +61,7 @@ function nmd_enqueue_scripts() {
 
 	// Theme Enqueue
 	wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery/jquery-1.9.0.min.js', array(), "1.9.0" );
+    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery/jquery-1.8.3.min.js', array(), "1.8.3" );
     wp_enqueue_script( 'jquery' );
 	wp_register_script( 'jquery-css3', get_template_directory_uri().'/js/jquery/plugins/jquery.css3.js', array( 'jquery' ), "1.0" );
 	wp_enqueue_script( 'jquery-css3' );

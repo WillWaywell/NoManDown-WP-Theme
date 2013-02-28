@@ -37,7 +37,7 @@ body {
 	background: #000 url(img/body_bg.jpg) center top no-repeat;
 	background-attachment: fixed;
 	font-size: 1em;
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 	color: #FFF;
 }
 
@@ -49,63 +49,14 @@ a {
 	-webkit-transition: color .5s;
 }
 
-a:hover {
+a:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover  {
 	color: white;
-}
-
-h1, h2, h3, h4, h5 {
-	font-weight: normal;
-	color: white;
-	margin: 1em 0;
-	line-height: 1.1em;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a {
-	font-weight: normal;
-	color: #FFF;
-}
-
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover  {
-	color: #DB650E;
-}
-
-h1 {
-	font-size: 2em;
-}
-
-h2 {
-	font-size: 1.9em;
-}
-
-h3 {
-	font-size: 1.8em;
-}
-
-h4 {
-	font-size: 1.6em;
-}
-
-header, footer, nav, aside, figure, article, section, hgroup {
-	display: block;
-}
-
-table {
-    border-collapse: collapse; 
-	border-spacing: 0;
 }
 
 p {
 	margin: 1em 0;
 	line-height: 1.8em;
 	color: #d3d3d3;
-}
-
-ul, ol {
-	margin: 0 1.250em;
-}
-
-img {
-	border: 0;
 }
 
 .is-transitioning {
@@ -255,6 +206,60 @@ textarea:focus {
 	border: none !important;
 	background: #FFF !important;
 }
+
+/* =Site Info Bar
+----------------------------------------------- */
+#site_info {
+	background-color: #000;
+	width: 100%;
+	font-size: 70%;
+	overflow: hidden;
+}
+
+#site_info .content {
+	max-width: 970px;
+	margin: 0 auto;
+}
+
+#site_info .social {
+	list-style: none;
+	display: inline;
+}
+
+#site_info .social li {
+	padding: 10px 0;
+	margin-right: 15px;
+}
+
+#site_info .social li.facebook {
+	background: url(img/facebook_icon.png) left center no-repeat;
+	padding-left: 10px;
+}
+
+#site_info .social li.youtube {
+	background: url(img/youtube_icon.png) left center no-repeat;
+	padding-left: 20px;
+}
+
+#site_info .links {
+	list-style: none;
+	float: right;
+	background: url(img/divider.png) no-repeat right bottom;
+}
+
+#site_info .links li {
+	text-transform: uppercase;
+	background: url(img/divider.png) no-repeat left bottom;
+	padding: 10px 30px;
+}
+
+#site_info .social li,
+#site_info .links li {
+	float: left;
+	text-align: center;
+}
+
+
 
 /* =Widget: Teamspeak 3 
 ----------------------------------------------- */

@@ -74,6 +74,10 @@ function nmd_enqueue_scripts() {
 	wp_register_style( 'lightbox', get_template_directory_uri().'/js/lightbox/css/lightbox.css' );
 	wp_enqueue_style( 'lightbox' );
 	
+	// Reset stylesheet
+	wp_register_style( 'reset', get_template_directory_uri().'/reset.css' );
+	wp_enqueue_style( 'reset' );
+	
 	// Overlays
 	wp_register_script( 'nmd_overlays', get_template_directory_uri().'/js/nmd/overlays.js', array( 'jquery', 'nmd' ), "1.0" );
 	wp_enqueue_script( 'nmd_overlays' );

@@ -11,8 +11,7 @@
 		<?php endwhile; // end of the loop. ?>
 
 	</section>	
-	<?php get_sidebar(); ?>
-	<div class="clear"></div>
+
 </section>
 
 <?php get_footer(); ?>

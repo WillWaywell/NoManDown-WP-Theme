@@ -29,4 +29,16 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-
+	<div id="site_info">
+		<div class="content">
+			<ul class="social">
+				<li class="facebook"><a href="http://www.facebook.com/NoManDownCommunity" target="_blank" title="No Man Down Facebook">Facebook</a></li>
+				<li class="youtube"><a href="http://www.youtube.com/user/HepHeppington" target="_blank" title="No Man Down YouTube Channel">Youtube</a></li>
+			</ul>
+			<ul class="links">
+				<li><a href="http://www.arma3.com/buy" target="_blank">ArmA 3 Alpha</a></li>
+				<li><a href="http://forums.bistudio.com" target="_blank">BI Forums</a></li>
+				<li><a href="http://www.bistudio.com" target="_blank">bistudio.com</a></li>
+			</ul>
+		</div>
+	</div>

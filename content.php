@@ -22,7 +22,7 @@
 		</div>
 		<?php else : ?>
 		<div class="post-content">
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'nmd' ) ); ?>
+			<?php the_excerpt(); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'nmd' ) . '</span>', 'after' => '</div>' ) ); ?>
 		</div>
 		<?php endif; ?>

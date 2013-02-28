@@ -4,7 +4,7 @@
  * Disable admin bar.
  */
 add_action('show_admin_bar', '__return_false');
-
+add_theme_support( 'post-thumbnails' );
 
 /**
  * Register sidebar and widget areas.

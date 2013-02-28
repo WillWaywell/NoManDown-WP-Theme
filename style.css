@@ -207,6 +207,15 @@ textarea:focus {
 	background: #FFF !important;
 }
 
+/* =Structure
+----------------------------------------------- */
+#container {
+	max-width: 970px;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+}
+
 /* =Site Info Bar
 ----------------------------------------------- */
 #site_info {
@@ -259,7 +268,52 @@ textarea:focus {
 	text-align: center;
 }
 
+/* =Site Info Bar
+----------------------------------------------- */
+#site_header {
+	padding-top: 30px;
+	margin-bottom: 30px;
+}
 
+#site_navigation {
+	position: relative;
+}
+
+#site_navigation ul {
+	font-size: 80%;
+	text-align: center;
+	position: relative;
+	z-index: 100;
+}
+
+#site_navigation ul li {
+	width: 12%;
+	display: inline-block;
+	zoom: 1;
+	text-transform: uppercase;
+}
+
+#site_navigation ul li.logo {
+	width: 19%;
+	background-color: transparent;
+	position: relative;
+}
+#site_navigation ul li.logo img {
+	width: 100%;
+	vertical-align: middle;
+}
+
+#site_navigation .background {
+	margin-top: -20px;
+	top: 50%;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 35px;
+	background-color: black;
+	background-color: rgba(0, 0, 0, .4);
+	z-index: 0;
+}
 
 /* =Widget: Teamspeak 3 
 ----------------------------------------------- */

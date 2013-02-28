@@ -1,3 +1,5 @@
+</div>
+
 <div class="overlay six">
 	<a class="close">X</a>
 	<h2 class="title">Join our servers via Play withSix</h2>

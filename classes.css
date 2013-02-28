@@ -1,0 +1,59 @@
+.is-transitioning {
+	display: block !important;
+	visibility: visible !important;
+}
+
+.small{
+	font-size: 70%;
+}
+
+.big{
+	font-size: 120%;
+}
+
+.huge{
+	font-size: 125%;
+	text-transform: uppercase;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.clear,
+.clear-break {
+	clear: both;
+}
+
+.clear-break {
+	height: 20px;
+}
+
+.blinking {
+	animation: blink .2s infinite;
+	-moz-animation: blink .2s infinite;
+	-webkit-animation: blink .2s infinite;
+}
+
+@keyframes blink {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@-moz-keyframes blink {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@-webkit-keyframes blink {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}

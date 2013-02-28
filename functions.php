@@ -61,10 +61,12 @@ function nmd_enqueue_scripts() {
 
 	// Theme Enqueue
 	wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery/jquery-1.8.3.min.js', array(), "1.8.3" );
+    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery/jquery-1.8.3.min.js', array(), "1.9.1" );
     wp_enqueue_script( 'jquery' );
 	wp_register_script( 'jquery-css3', get_template_directory_uri().'/js/jquery/plugins/jquery.css3.js', array( 'jquery' ), "1.0" );
 	wp_enqueue_script( 'jquery-css3' );
+	wp_register_script( 'jquery-teletype', get_template_directory_uri().'/js/jquery/plugins/jquery.teletype.js', array( 'jquery' ), "1.0" );
+	wp_enqueue_script( 'jquery-teletype' );
 	wp_register_script( 'nmd', get_template_directory_uri().'/js/nmd/nmd.js', array('jquery'), "1.0" );
 	wp_enqueue_script( 'nmd' );
 	
@@ -73,10 +75,6 @@ function nmd_enqueue_scripts() {
 	wp_enqueue_script( 'lightbox' );
 	wp_register_style( 'lightbox', get_template_directory_uri().'/js/lightbox/css/lightbox.css' );
 	wp_enqueue_style( 'lightbox' );
-	
-	// Reset stylesheet
-	wp_register_style( 'reset', get_template_directory_uri().'/reset.css' );
-	wp_enqueue_style( 'reset' );
 	
 	// Overlays
 	wp_register_script( 'nmd_overlays', get_template_directory_uri().'/js/nmd/overlays.js', array( 'jquery', 'nmd' ), "1.0" );

@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@import url('reset.css');
+@import url('structure.css');
+@import url('classes.css');
 
 /*
 Theme Name: NMD ArmA 3
@@ -12,20 +15,15 @@ Tags: arma3, dark, nomandown
 
 /* =General
 ----------------------------------------------- */
-* {
-	padding: 0;
-	margin: 0;
-}
-
 ::selection { 
-	background:#DB650E; 
-	color:#FFF; 
+	background: #ADBF83; 
+	color: #000; 
 	text-shadow: none; 
 }
 
 ::-moz-selection { 
-	background: #DB650E; 
-	color:#FFF; 
+	background: #ADBF83; 
+	color: #000; 
 	text-shadow: none; 
 }
 
@@ -34,11 +32,18 @@ html {
 }
 
 body {
-	background: #000 url(img/body_bg.jpg) center top no-repeat;
+	background-color: #000;
+	background-image: url(img/body_bg.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	font-size: 1em;
-	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #FFF;
+}
+
+body.single {
+	background-image: url(img/body_bg_blank.jpg); 
 }
 
 a {
@@ -57,25 +62,6 @@ p {
 	margin: 1em 0;
 	line-height: 1.8em;
 	color: #d3d3d3;
-}
-
-.is-transitioning {
-	display: block !important;
-	visibility: visible !important;
-}
-
-.clear,
-.clear-break {
-	clear: both;
-}
-
-.clear-break {
-	height: 20px;
-}
-
-.separator {
-	border-bottom: 1px solid #343434;
-	margin-bottom: 5px;
 }
 
 input,
@@ -180,11 +166,6 @@ textarea:focus {
 	border: 1px solid #DB650E;
 }
 
-.wrap {
-	width: 1180px;
-	margin: 0 auto;
-}
-
 /* =Wordpress WYSIWYG Classes
 ----------------------------------------------- */
 .aligncenter {
@@ -205,128 +186,6 @@ textarea:focus {
 	color: #000 !important;
 	border: none !important;
 	background: #FFF !important;
-}
-
-/* =Structure
------------------------------------------------ */
-#container {
-	max-width: 970px;
-	margin: 0 auto;
-	padding: 0 10px;
-	position: relative;
-}
-
-/* =Site Info Bar
------------------------------------------------ */
-#site_info {
-	background-color: #000;
-	width: 100%;
-	font-size: 70%;
-	overflow: hidden;
-}
-
-#site_info .content {
-	max-width: 970px;
-	margin: 0 auto;
-}
-
-#site_info .social {
-	list-style: none;
-	display: inline;
-}
-
-#site_info .social li {
-	padding: 10px 0;
-	margin-right: 15px;
-}
-
-#site_info .social li.facebook {
-	background: url(img/facebook_icon.png) left center no-repeat;
-	padding-left: 10px;
-}
-
-#site_info .social li.youtube {
-	background: url(img/youtube_icon.png) left center no-repeat;
-	padding-left: 20px;
-}
-
-#site_info .links {
-	list-style: none;
-	float: right;
-	background: url(img/divider.png) no-repeat right bottom;
-}
-
-#site_info .links li {
-	text-transform: uppercase;
-	background: url(img/divider.png) no-repeat left bottom;
-	padding: 10px 30px;
-}
-
-#site_info .social li,
-#site_info .links li {
-	float: left;
-	text-align: center;
-}
-
-/* =Site Info Bar
------------------------------------------------ */
-#site_header {
-	padding-top: 30px;
-	margin-bottom: 30px;
-}
-
-#site_navigation {
-	position: relative;
-}
-
-#site_navigation ul {
-	font-size: 80%;
-	text-align: center;
-	position: relative;
-	z-index: 100;
-}
-
-#site_navigation ul li {
-	width: 12%;
-	display: inline-block;
-	zoom: 1;
-	text-transform: uppercase;
-}
-
-#site_navigation ul li.logo {
-	width: 19%;
-	background-color: transparent;
-	position: relative;
-}
-#site_navigation ul li.logo img {
-	width: 100%;
-	vertical-align: middle;
-}
-
-#site_navigation .background {
-	margin-top: -20px;
-	top: 50%;
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 35px;
-	background-color: black;
-	background-color: rgba(0, 0, 0, .4);
-	z-index: 0;
-}
-
-/* =Widget: Teamspeak 3 
------------------------------------------------ */
-#ts3_wp_viewer .suffix img {
-	padding: 0 5px;
-}
-
-#ts3_wp_viewer .corpus.client {
-	padding: 0 5px;
-}
-
-#ts3_wp_viewer  img {
-	vertical-align: middle;
 }
 
 /* =Overlays

@@ -1,33 +1,31 @@
 <?php get_header(); ?>
 
-<section id="content" class="wrap">
-	<section id="articles" class="left">
-			<?php if ( have_posts() ) : ?>
+<section id="site_content">
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+		<?php if ( have_posts() ) : ?>
 
-				<?php get_template_part( 'content', get_post_format() ); ?>
+		<?php /* Start the Loop */ ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php endwhile; ?>
-			
-			<?php nmd_post_links(); ?>
+			<?php get_template_part( 'content', get_post_format() ); ?>
 
-		<?php else : ?>
+		<?php endwhile; ?>
+		
+		<?php nmd_post_links(); ?>
 
-			<article id="post-0" class="post no-results not-found">
-				<h1 class="entry-title">Nothing Found</h1>
-				<div class="entry-content">
-					<p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
-					<?php get_search_form(); ?>
-					<br />
-				</div>
-			</article>
+	<?php else : ?>
 
-		<?php endif; ?>
-	</section>	
-	<?php get_sidebar(); ?>
-	<div class="clear"></div>
+		<article id="post-0" class="post no-results not-found">
+			<h1 class="entry-title">Nothing Found</h1>
+			<div class="entry-content">
+				<p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
+				<?php get_search_form(); ?>
+				<br />
+			</div>
+		</article>
+
+	<?php endif; ?>	
+
 </section>
 
 <?php get_footer(); ?>

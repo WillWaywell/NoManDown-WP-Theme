@@ -30,14 +30,7 @@
 		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 		<footer class="post-meta">
 			<?php $show_sep = false; ?>
-			
-				<span class="post-author">Posted by <a href="<?php echo site_url('/forums/users/'.get_the_author()) ?>"><?php echo get_the_author() ?></a></span>
-				<?php edit_post_link('Edit', '<span class="edit-link">', '</span>' ); ?>
-				
-				<?php if ( comments_open() ) : ?>
-				<span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">Leave a comment</span>', __( '<b>1</b> Comments', 'nmd' ), __( '<b>%</b> Comments', 'nmd' ) ); ?></span>
-				<?php endif; // End if comments_open() ?>	
-			<div class="clear"></div>
+			<span class="post-author">Posted by <a href="<?php echo site_url('/forums/users/'.get_the_author()) ?>"><?php echo get_the_author() ?></a></span>
 		</footer>
 		<?php endif; // End if 'post' == get_post_type() ?>
 	</div>

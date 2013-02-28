@@ -1,6 +1,5 @@
 <aside id="sidebar">
-	<?php if ( !function_exists('dynamic_sidebar')
-	|| !dynamic_sidebar() ) : ?>
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
 		<aside id="archives" class="widget">
 			<h3 class="widget-title">Archives</h3>
 			<ul>

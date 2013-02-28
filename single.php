@@ -10,8 +10,6 @@
 
 		<?php endwhile; // end of the loop. ?>
 
-	</div>	
-	<?php comments_template( '', true ); ?>
 	</section>	
 	<?php get_sidebar(); ?>
 	<div class="clear"></div>

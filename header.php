@@ -51,7 +51,7 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 					<li><a href="<?php bloginfo( 'url' ); ?>/intel">Intel</a></li>
 					<li><a href="#">Media</a></li>
 					<li class="logo">
-						<img src="http://www.arma3.com/images/arma3_logo.png" />
+						<img src="<?php echo get_template_directory_uri(); ?>/img/navigation_logo.png" />
 					</li>
 					<li><a href="#">Forums</a></li>
 					<li><a href="#">Servers</a></li>

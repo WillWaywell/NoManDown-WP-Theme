@@ -3,6 +3,14 @@
 	visibility: visible !important;
 }
 
+.italic {
+	font-style: italic;
+}
+
+.bold {
+	font-weight: bold;
+}
+
 .small{
 	font-size: 70%;
 }

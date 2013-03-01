@@ -6,5 +6,9 @@
 nmd = {};
 
 $(function(){
+	   
+});
+
+$(window).load(function() {
 	$( '#title_console' ).teletype( { animDelay: 100, text: $( '#page_title noscript' ).text() } );
 });

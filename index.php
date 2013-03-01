@@ -2,7 +2,7 @@
 
 <section id="site_content">
 
-		<header id="page_header">
+		<header id="page_header_small">
 			<h1>
 				News and <strong>Intel</strong>
 				<span class="blinking">_</span>

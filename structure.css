@@ -7,13 +7,57 @@
 }
 
 #page_header {
+	text-align: center;
+	position: relative;
+	height: 400px;
+	width: 100%;
+}
+
+#page_bg_image {
+	position: absolute;
+	top: 0;
+	width: auto;
+	left: -1000px;
+	right: -1000px;
+	z-index: 0;
+	height: 100%;
+	border: 1px solid #333;
+	background-position: center center;
+	z-index: -1;
+}
+
+#page_header .date {
+	text-shadow: 1px 1px 1px black;
+	font-size: 80%;
+	display: block;
+	line-height: 1.5em;
+}
+
+#page_title {
+	margin: 10% 2% 2% 2%;
+	color: white;
+	font-size: 255%;
+	padding: 2%;
+	display: inline-block;
+	zoom: 1;
+	background-color: black;
+	background-color: rgba(0, 0, 0, .4);
+	text-transform: uppercase;
+}
+
+#page_header_small {
 	margin-bottom: 20px;
 	overflow: hidden;
 	clear: both;
-	font-size: 200%;
+	font-size: 250%;
 	text-align: right;
 	text-transform: uppercase;
 }
+
+.author span {
+	color: #EFAF1C;
+}
+
 
 /* =Site Info Bar
 ----------------------------------------------- */
@@ -175,19 +219,58 @@
 	line-height: 1.5em;
 }
 
-.post-meta {
+#news_wrapper .post-meta {
 	color: lightGrey;
 	margin-top: 10px;
 	font-size: 80%;
 	line-height: 1.5em;
 }
 
-.post-meta .author {
+#news_wrapper .post-meta .author {
 	display: inline;
 }
 
-.post-meta .author span {
-color: #EFAF1C;
+/* =Single / Article
+----------------------------------------------- */
+#post {
+	width: 100%;
+	background-color: black;
+	background-color: rgba(0,0,0,.4);
+	min-height: 300px;
+	margin-top: -30px;
+	position: relative;
+	z-index: 1;
+}
+
+#post_content {
+	padding: 7px 30px 15px;
+	font-size: 100%;
+}
+
+#post_content img {
+	border: 1px solid #222;
+	transition: border-color .5s;
+	-moz-transition: border-color .5s;
+	-webkit-transition: border-color .5s;
+}
+
+#post_content img:hover {
+	border-color: #555;
+}
+
+#post_top_links {
+	overflow: hidden;
+	height: 20px;
+}
+
+#post_top_links #back_btn {
+	float: right;
+	background: url('img/icons/back_arrow.png') no-repeat left center;
+	padding-left: 35px;
+}
+
+#post_text_wrapper {
+	margin: 30px 0 15px;
 }
 
 /* =Content Boxes

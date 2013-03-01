@@ -21,9 +21,9 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 <meta charset="<?php bloginfo('charset'); ?>" />
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>?ver=1.0" />
-<link rel='icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
-<link rel='shortcut icon' href='<?php bloginfo('url'); ?>/favicon.ico' type='image/x-icon' />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,700,600,300' rel='stylesheet' type='text/css'>
+<link rel="icon" href="<?php bloginfo( 'url' ); ?>/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php bloginfo( 'url' ); ?>/favicon.ico" type="image/x-icon" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,700,600,300" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5.min.js"></script>
 <![endif]-->
@@ -47,8 +47,8 @@ if ( $site_description && ( is_home() || is_front_page() ) )
 		<header id="site_header">
 			<nav id="site_navigation">
 				<ul>
-					<li><a href="<?php bloginfo('url'); ?>">Home</a></li>
-					<li><a href="<?php bloginfo('url'); ?>/intel">Intel</a></li>
+					<li><a href="<?php bloginfo( 'url' ); ?>">Home</a></li>
+					<li><a href="<?php bloginfo( 'url' ); ?>/intel">Intel</a></li>
 					<li><a href="#">Media</a></li>
 					<li class="logo">
 						<img src="http://www.arma3.com/images/arma3_logo.png" />

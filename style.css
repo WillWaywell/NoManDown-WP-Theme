@@ -27,10 +27,6 @@ Tags: arma3, dark, nomandown
 	text-shadow: none; 
 }
 
-html { 
-	-webkit-font-smoothing: antialiased; 
-}
-
 body {
 	background-color: #000;
 	background-image: url(img/body_bg.jpg);
@@ -38,7 +34,7 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	font-size: 1em;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #FFF;
 }
 
@@ -62,6 +58,10 @@ p {
 	line-height: 1.8em;
 	margin-bottom: 15px;
 	color: #d3d3d3;
+}
+
+strong {
+	font-weight: bold;
 }
 
 input,

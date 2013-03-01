@@ -163,6 +163,7 @@
 	padding: 8px;
 	display: inline-block;
 	zoom: 1;
+	text-transform: uppercase;
 	background-color: black;
 	background-color: rgba(0,0,0,.4);
 }

@@ -38,7 +38,7 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	font-size: 1em;
-	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #FFF;
 }
 
@@ -59,8 +59,8 @@ a:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover  {
 }
 
 p {
-	margin: 1em 0;
 	line-height: 1.8em;
+	margin-bottom: 15px;
 	color: #d3d3d3;
 }
 

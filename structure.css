@@ -6,6 +6,15 @@
 	position: relative;
 }
 
+#page_header {
+	margin-bottom: 20px;
+	overflow: hidden;
+	clear: both;
+	font-size: 200%;
+	text-align: right;
+	text-transform: uppercase;
+}
+
 /* =Site Info Bar
 ----------------------------------------------- */
 #site_info {
@@ -85,6 +94,15 @@
 	text-transform: uppercase;
 }
 
+#site_navigation ul li a {
+	display: block;
+	padding: 9% 0;
+}
+
+#site_navigation ul li:hover {
+	background-color: black;
+}
+
 #site_navigation ul li.logo {
 	width: 19%;
 	background-color: transparent;
@@ -107,7 +125,71 @@
 	z-index: 0;
 }
 
-/* =Site Content
+/* =Intel / Articles
+----------------------------------------------- */
+#news_wrapper .post {
+	position: relative;
+	margin-bottom: 30px;
+	width: 100%;
+}
+
+#news_wrapper .post .post-thumb {
+	text-align: right;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 19%;
+	height: 100%;
+}
+
+#news_wrapper .post .post-thumb img {
+	max-width: 100%;
+	box-shadow: 0px 0px 3px black;
+}
+
+#news_wrapper .post .post-margin {
+	padding: 10px;
+	margin-left: 20%;
+	background-color: black;
+	background-color: rgba(0,0,0,.4);
+}
+
+#news_wrapper .post .post-header {
+	margin-bottom: 10px;
+}
+
+#news_wrapper .post .post-header h1 {
+	font-size: 150%;
+	padding: 8px;
+	display: inline-block;
+	zoom: 1;
+	background-color: black;
+	background-color: rgba(0,0,0,.4);
+}
+
+#news_wrapper .post .post-content {
+	min-height: 90px;
+	clear: both;
+	font-size: 100%;
+	line-height: 1.5em;
+}
+
+.post-meta {
+	color: lightGrey;
+	margin-top: 10px;
+	font-size: 80%;
+	line-height: 1.5em;
+}
+
+.post-meta .author {
+	display: inline;
+}
+
+.post-meta .author span {
+color: #EFAF1C;
+}
+
+/* =Content Boxes
 ----------------------------------------------- */
 .box {
 	width: 48%;

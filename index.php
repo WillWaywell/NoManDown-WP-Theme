@@ -2,7 +2,14 @@
 
 <section id="site_content">
 
-		<?php if ( have_posts() ) : ?>
+		<header id="page_header">
+			<h1>
+				News and <strong>Intel</strong>
+				<span class="blinking">_</span>
+			</h1>
+		</header>
+		
+		<div id="news_wrapper">
 
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -12,19 +19,8 @@
 		<?php endwhile; ?>
 		
 		<?php nmd_post_links(); ?>
-
-	<?php else : ?>
-
-		<article id="post-0" class="post no-results not-found">
-			<h1 class="entry-title">Nothing Found</h1>
-			<div class="entry-content">
-				<p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
-				<?php get_search_form(); ?>
-				<br />
-			</div>
-		</article>
-
-	<?php endif; ?>	
+		
+		</div>
 
 </section>
 

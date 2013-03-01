@@ -18,7 +18,7 @@
 			</h1>
 		</header>
 		<div class="post-content">
-			<?php the_excerpt(); ?>
+			<?php the_content(); ?>
 		</div>
 		<footer class="post-meta">
 			<address class="author">

@@ -1,39 +1,15 @@
 @font-face {
-    font-family: 'cpmono';
-    src: url('fonts/cpmono_black-webfont.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'cpmono';
-    src: url('fonts/cpmono_bold-webfont.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'cpmono';
-    src: url('fonts/cpmono_extralight-webfont.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'cpmono';
-    src: url('fonts/cpmono_light-webfont.woff') format('woff');
-    font-weight: lighter;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'cpmono';
-    src: url('fonts/cpmono_plain-webfont.woff') format('woff');
+    font-family: 'Prime';
+    src: url('fonts/PrimeRegular.woff') format('woff'),
+         url('fonts/PrimeRegular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'Prime';
+    src: url('fonts/PrimeLight.woff') format('woff'),
+         url('fonts/PrimeLight.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
 }

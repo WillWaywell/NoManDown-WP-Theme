@@ -10,13 +10,6 @@ add_theme_support( 'post-thumbnails' );
  * Register sidebar and widget areas.
  */
 function nmd_widgets_init() {
-
-	register_sidebar(array(
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div></div>',
-		'before_title' => '<h2 class="widget-title">',
-		'after_title' => '</h2><div class="widget-content">',
-	));
 	
 }
 add_action( 'widgets_init', 'nmd_widgets_init' );
@@ -31,6 +24,23 @@ function nmd_theme_setup() {
 	require 'lib/arma2query.php'; 
 	
 	register_nav_menu('navigation', 'Navigation Menu');
+
+	register_sidebar(array(
+	  'name' => 'Home Widgets 1',
+	  'id' => 'home-widgets-1',
+	  'description' => 'Front page widgets container #1.',
+	  'before_title' => '<h2 class="widget-title">',
+	  'after_title' => '</h2><div class="widget-content">',
+	  'after_widget' => '</div></li>',
+	));
+	
+	register_sidebar(array(
+	  'name' => 'Home Widgets 2',
+	  'id' => 'home-widgets-2',
+	  'description' => 'Front page widgets container #2.',
+	  'before_title' => '<h2 class="widget-title">',
+	  'after_title' => '</h2>'
+	));
 	
 }
 add_action( 'after_setup_theme', 'nmd_theme_setup', 0 );
@@ -59,18 +69,22 @@ if ( !function_exists( 'nmd_enqueue_scripts' ) ) :
  */
 function nmd_enqueue_scripts() {
 
-	// Theme Enqueue
-	wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery/jquery-1.8.3.min.js', array(), "1.9.1" );
-    wp_enqueue_script( 'jquery' );
+	// Theme Style
+	wp_enqueue_style( 'nmd-style', get_stylesheet_uri() );
+
+	// jQuery CSS3 Plugin
 	wp_register_script( 'jquery-css3', get_template_directory_uri().'/js/jquery/plugins/jquery.css3.js', array( 'jquery' ), "1.0" );
 	wp_enqueue_script( 'jquery-css3' );
+	
+	// jQuery Teletype Plugin
 	wp_register_script( 'jquery-teletype', get_template_directory_uri().'/js/jquery/plugins/jquery.teletype.js', array( 'jquery' ), "1.0" );
 	wp_enqueue_script( 'jquery-teletype' );
-	wp_register_script( 'nmd', get_template_directory_uri().'/js/nmd/nmd.js', array('jquery'), "1.0" );
+	
+	// Theme JS
+	wp_register_script( 'nmd', get_template_directory_uri().'/js/nmd/nmd.js', array( 'jquery', 'jquery-css3', 'jquery-teletype' ), "1.0" );
 	wp_enqueue_script( 'nmd' );
 	
-	// Lightbox Enqueue
+	// Lightbox
 	wp_register_script( 'lightbox', get_template_directory_uri().'/js/lightbox/js/lightbox.js', array(), "2.51" );
 	wp_enqueue_script( 'lightbox' );
 	wp_register_style( 'lightbox', get_template_directory_uri().'/js/lightbox/css/lightbox.css' );

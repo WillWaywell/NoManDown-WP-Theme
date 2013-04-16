@@ -65,3 +65,43 @@
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
+
+/* =Widgets
+----------------------------------------------- */
+.widget-container {
+	overflow: hidden;
+	list-style: none;
+}
+
+.widget-container .widget:first-child {
+	float: left;
+}
+
+.widget-container .widget:last-child {
+	float: right;
+}
+
+.widget {
+	width: 48%;
+	min-height: 200px;
+	font-size: 80%;
+	background-color: #222;
+	position: relative;
+}
+
+.widget-title {
+	display: inline-block;
+	zoom: 1;
+	padding: 5px 8px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	margin: 0 0 5px;
+	background-color: #ADBF83;
+	color: black;
+}
+
+.widget-content {
+	margin: 30px 8px 8px 8px;
+}

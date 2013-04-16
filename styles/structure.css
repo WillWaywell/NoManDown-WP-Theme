@@ -86,24 +86,24 @@
 }
 
 #site_info .social li.facebook {
-	background: url(img/facebook_icon.png) left center no-repeat;
+	background: url(../img/facebook_icon.png) left center no-repeat;
 	padding-left: 10px;
 }
 
 #site_info .social li.youtube {
-	background: url(img/youtube_icon.png) left center no-repeat;
+	background: url(../img/youtube_icon.png) left center no-repeat;
 	padding-left: 20px;
 }
 
 #site_info .links {
 	list-style: none;
 	float: right;
-	background: url(img/divider.png) no-repeat right bottom;
+	background: url(../img/divider.png) no-repeat right bottom;
 }
 
 #site_info .links li {
 	text-transform: uppercase;
-	background: url(img/divider.png) no-repeat left bottom;
+	background: url(../img/divider.png) no-repeat left bottom;
 	padding: 10px 30px;
 }
 
@@ -265,7 +265,7 @@
 
 #post_top_links #back_btn {
 	float: right;
-	background: url('img/icons/back_arrow.png') no-repeat left center;
+	background: url('../img/icons/back_arrow.png') no-repeat left center;
 	padding-left: 35px;
 }
 

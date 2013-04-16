@@ -5,10 +5,10 @@
  */
 nmd = {};
 
-$(function(){
+jQuery(function(){
 	   
 });
 
-$(window).load(function() {
-	$( '#title_console' ).teletype( { animDelay: 100, text: $( '#page_title noscript' ).text() } );
+jQuery(window).load(function() {
+	jQuery( '#title_console' ).teletype( { animDelay: 100, text: jQuery( '#page_title noscript' ).text() } );
 });

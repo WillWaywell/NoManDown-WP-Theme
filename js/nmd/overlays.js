@@ -3,12 +3,12 @@
  * Copyright: 2012 nomandown.com
  * Author: Will Waywell
  */
-$(function(){
+jQuery(function(){
 	// SIX Servers Overlay
-	$('#links .link.six').click(function(){
-		var sixButton = $(this);
-		$('#blackout').transition(true, function(){
-			$('#loading').transition(true);
+	jQuery('#links .link.six').click(function(){
+		var sixButton = jQuery(this);
+		jQuery('#blackout').transition(true, function(){
+			jQuery('#loading').transition(true);
 		});
 			
 	    var data = {
@@ -22,15 +22,15 @@ $(function(){
 			type: 'POST',
 			dataType: 'json',
 			success: function(result){
-				$('.overlay.six .server.dayz .details .players .num').text(result['nmd_dayz']['numplayers'] + ' / ' + result['nmd_dayz']['maxplayers']);
-				$('.overlay.six .server.ace .details .players .num').text(result['nmd_ace']['numplayers'] + ' / ' + result['nmd_ace']['maxplayers']);
+				jQuery('.overlay.six .server.dayz .details .players .num').text(result['nmd_dayz']['numplayers'] + ' / ' + result['nmd_dayz']['maxplayers']);
+				jQuery('.overlay.six .server.ace .details .players .num').text(result['nmd_ace']['numplayers'] + ' / ' + result['nmd_ace']['maxplayers']);
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown){
 				console.log(errorThrown);
 			},
 			complete: function(){
-				$('#loading').transition(false, function(){
-					overlay = $('.overlay.six');
+				jQuery('#loading').transition(false, function(){
+					overlay = jQuery('.overlay.six');
 					
 					overlay.css('margin-top', -(overlay.outerHeight() / 2));
 					overlay.css('margin-left', -(overlay.outerWidth() / 2));
@@ -41,12 +41,12 @@ $(function(){
 	});
 	
 	// Handle overlay closing
-	$('.overlay a.close, #blackout').click(function(){
-		overlay = $('.overlay:visible');
+	jQuery('.overlay a.close, #blackout').click(function(){
+		overlay = jQuery('.overlay:visible');
 		if(!overlay.hasClass('show')) return;
 		
 		overlay.transition(false, function(){
-			$('#blackout').transition(false);
+			jQuery('#blackout').transition(false);
 		});
 	});
 });

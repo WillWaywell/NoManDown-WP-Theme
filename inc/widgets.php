@@ -109,7 +109,7 @@ class NMDContentWidget extends WP_Widget {
 		$instance[ 'id' ] = strip_tags( $new_instance[ 'id' ] );
 		$instance[ 'class' ] = strip_tags( $new_instance[ 'class' ] );
 		$instance[ 'style' ] = strip_tags( $new_instance[ 'style' ] );
-		$instance[ 'text' ] = strip_tags( $new_instance[ 'text' ] );
+		$instance[ 'text' ] = $new_instance[ 'text' ];
 
 		return $instance;
 	}

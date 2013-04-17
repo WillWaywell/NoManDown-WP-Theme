@@ -85,11 +85,14 @@
 	width: 48%;
 	min-height: 200px;
 	font-size: 80%;
-	background-color: #222;
+	background-color: grey;
+	background-color: rgba(255,255,255,.15);
+	background-size: cover;
+	background-position: center center;
 	position: relative;
 }
 
-.widget-title {
+.widget .widget-title {
 	display: inline-block;
 	zoom: 1;
 	padding: 5px 8px;
@@ -100,8 +103,30 @@
 	margin: 0 0 5px;
 	background-color: #ADBF83;
 	color: black;
+	text-transform: uppercase;
 }
 
-.widget-content {
+.widget .widget-content {
 	margin: 30px 8px 8px 8px;
+}
+
+.widget .widget-content .widget-link {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-size: cover;
+	background-position: center center;
+}
+
+.widget .widget-content .widget-label {
+	color: white;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 8px;
+	background-color: black;
+	background-color: rgba(0,0,0,.4);
 }

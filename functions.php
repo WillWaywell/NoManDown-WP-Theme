@@ -10,6 +10,26 @@ add_theme_support( 'post-thumbnails' );
  * Register sidebar and widget areas.
  */
 function nmd_widgets_init() {
+
+	register_sidebar(array(
+	  'name' => 'Home Widgets 1',
+	  'id' => 'home-widgets-1',
+	  'description' => 'Front page widgets container #1.',
+	  'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	  'after_widget'  => '</div>',
+	  'before_title' => '<h2 class="widget-title">',
+	  'after_title' => '</h2>'
+	));
+	
+	register_sidebar(array(
+	  'name' => 'Home Widgets 2',
+	  'id' => 'home-widgets-2',
+	  'description' => 'Front page widgets container #2.',
+	  'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	  'after_widget'  => '</div>',
+	  'before_title' => '<h2 class="widget-title">',
+	  'after_title' => '</h2>'
+	));
 	
 }
 add_action( 'widgets_init', 'nmd_widgets_init' );
@@ -22,26 +42,9 @@ if ( ! function_exists( 'nmd_theme_setup' ) ) :
 function nmd_theme_setup() {
 
 	require 'lib/arma2query.php'; 
+	require( get_template_directory() . '/inc/widgets.php' );
 	
 	register_nav_menu('navigation', 'Navigation Menu');
-
-	register_sidebar(array(
-	  'name' => 'Home Widgets 1',
-	  'id' => 'home-widgets-1',
-	  'description' => 'Front page widgets container #1.',
-	  'before_title' => '<h2 class="widget-title">',
-	  'after_title' => '</h2><div class="widget-content">',
-	  'after_widget' => '</div></li>',
-	));
-	
-	register_sidebar(array(
-	  'name' => 'Home Widgets 2',
-	  'id' => 'home-widgets-2',
-	  'description' => 'Front page widgets container #2.',
-	  'before_title' => '<h2 class="widget-title">',
-	  'after_title' => '</h2>'
-	));
-	
 }
 add_action( 'after_setup_theme', 'nmd_theme_setup', 0 );
 endif;	//ends check for nmd_theme_setup()

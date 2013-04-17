@@ -17,13 +17,13 @@ Tags: arma3, dark, nomandown
 /* =General
 ----------------------------------------------- */
 ::selection { 
-	background: #ADBF83; 
+	background: #EEE; 
 	color: #000; 
 	text-shadow: none; 
 }
 
 ::-moz-selection { 
-	background: #ADBF83; 
+	background: #EEE; 
 	color: #000; 
 	text-shadow: none; 
 }

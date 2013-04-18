@@ -73,23 +73,45 @@
 
 /* =Widgets
 ----------------------------------------------- */
-.widget-container {
+.intel-widgets,
+.home-widgets {
 	overflow: hidden;
-	list-style: none;
 }
 
-.widget-container .widget:first-child {
+.intel-widgets {
+	float: left;
+	width: 27%;
+}
+
+.intel-widgets .widget {
+	width: 100%;
+	height: 185px;
+	float: left;
+	font-size: 80%;
+	background-color: #222;
+	box-shadow: 1px 1px 3px #111;
+	-moz-box-shadow: 1px 1px 3px #111;
+	-webkit-box-shadow: 1px 1px 3px #111;
+}
+
+.intel-widgets .widget:first-child {
+	margin-bottom: 30px;
+}
+
+.home-widgets .widget {
+	width: 48%;
+	min-height: 200px;
+}
+
+.home-widgets .widget:first-child {
 	float: left;
 }
 
-.widget-container .widget:last-child {
+.home-widgets .widget:last-child {
 	float: right;
 }
 
 .widget {
-	width: 48%;
-	min-height: 200px;
-	font-size: 80%;
 	background-color: grey;
 	background-color: rgba(255,255,255,.15);
 	background-size: cover;

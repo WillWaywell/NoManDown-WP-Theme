@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="intel-slider">
+<div class="intel-slider left">
 	<header class="head">
 		<h2 class="title">Featured Intel</h2>
 		<nav class="navigation">
@@ -50,15 +50,20 @@
 	</div>
 </div>
 
-<div class="clear divider"></div>
+<div id="home-widgets-1" class="intel-widgets">
+	<?php dynamic_sidebar( 'intel-widgets' ); ?>
+</div>
 
-<div id="home-widgets-1" class="widget-container">
+<div class="clear"></div>
+<div class="divider"></div>
+
+<div id="home-widgets-1" class="home-widgets">
 	<?php dynamic_sidebar( 'home-widgets-1' ); ?>
 </div>
 
 <div class="clear divider"></div>
 
-<div id="home-widgets-2" class="widget-container">
+<div id="home-widgets-2" class="home-widgets">
 	<?php dynamic_sidebar( 'home-widgets-2' ); ?>
 </div>
 

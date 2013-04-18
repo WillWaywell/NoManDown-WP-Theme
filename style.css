@@ -57,7 +57,7 @@ a:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover  {
 
 p {
 	line-height: 1.8em;
-	margin-bottom: 15px;
+	margin: 15px 0;
 	color: #d3d3d3;
 }
 

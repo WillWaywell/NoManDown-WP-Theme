@@ -18,7 +18,7 @@ $.support.transition = (function(){
     return support; 
 })();
 
-$.fn.prepareTransition = function(){
+$.fn.setupTransition = function(){
 	if(!$.support.transition) return this;
     return this.each(function(){
         var el = $(this);
@@ -27,19 +27,18 @@ $.fn.prepareTransition = function(){
             el.removeClass('is-transitioning');
         });
 
-        
 		el.addClass('is-transitioning');
 		el[0].offsetWidth; // check offsetWidth to force the style rendering
     });
 };
 
-$.fn.transition = function(show, callback) {
+$.fn.transition = function(show, className,callback) {
 	var el = $(this);
 	
 	if(show){
-		el.prepareTransition().addClass('show');
+		el.setupTransition().addClass(className);
 	} else {
-		el.prepareTransition().removeClass('show');
+		el.setupTransition().removeClass(className);
 	}
 	
 	if(callback == undefined) return;

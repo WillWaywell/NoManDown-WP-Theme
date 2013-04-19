@@ -39,7 +39,8 @@ body {
 	color: #FFF;
 }
 
-body.single {
+body.single,
+body.page {
 	background-image: url(img/body_bg_blank.jpg); 
 }
 

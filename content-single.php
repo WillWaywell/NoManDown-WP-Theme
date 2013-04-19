@@ -1,5 +1,5 @@
 <header id="page_header">
-	<div id="page_bg_image" style="background-image: url('http://www.arma3.com/images/post_header_images/post_header_image.jpg')"></div>
+	<div id="page_bg_image" style="background-image: url('<?php echo get_post_custom_values( "header_bg", get_the_ID() )[0]; ?>')"></div>
 	<hgroup>
 		<h1 id="page_title">
 			<noscript><?php the_title(); ?></noscript>

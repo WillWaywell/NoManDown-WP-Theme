@@ -40,7 +40,7 @@ body {
 }
 
 body.single,
-body.page {
+body.page:not(.home) {
 	background-image: url(img/body_bg_blank.jpg); 
 }
 
